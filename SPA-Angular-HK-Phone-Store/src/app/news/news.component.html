@@ -1,0 +1,74 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    <h4 class="card-title text-center">News Technology</h4>
+                </div>
+                <div class="d-flex mt-3">
+                    <input class="form-control w-25 ml-3" id="myInput" type="text" placeholder="Search..">
+                    <!-- <a routerLink="/account/create-account" class="ml-auto mr-3"><button type="button"
+                            class="btn btn-info">Add News</button></a> -->
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-info">
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Date</th>
+                            <th>Creator</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </thead>
+                        <tbody id="myTable">
+                            <tr *ngFor="let item of Items">
+                                <td>{{item.id_news}}</td>
+                                <td>{{item.title.slice(0, 50)}}...</td>
+                                <td>{{item.date_created}}</td>
+                                <td>{{item.creator}}</td>
+                                <td>
+                                    <a [routerLink]="['/news/edit-news', item.id_news]">
+                                        <button mat-raised-button type="button" matTooltip="Show" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                            <i class="fas fa-eye mb-3"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                            <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    <h4 class="card-title text-center">Create News</h4>
+                </div>
+                <div class="card-body table-responsive">
+                    <form action="/action_page.php">
+                        <div class="form-group">
+                            <label for="usr">Title:</label>
+                            <input type="text" class="form-control" id="usr" placeholder="Enter Name Company Product" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="usr">Content:</label>
+                            <textarea class="form-control" rows="10" id="content" placeholder="Enter Content Technology" name="content"></textarea>
+                        </div>
+                        <label for="usr">Image-News:</label><br>
+                        <input type="file" class="rounded bg-info" id="myFile" name="avatar">
+
+                        <div class="d-flex justify-content-center mt-3">
+                            <button type="submit" class="btn btn-success rounded mr-2">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

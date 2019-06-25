@@ -1,0 +1,75 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    <h4 class="card-title text-center">Infor Account</h4>
+                </div>
+                <div class="w-100 my-3">
+                    <div class="d-flex px-4">
+                        <div class="w-40 mr-2">
+                            <h6>Personal Info</h6>
+                            <hr>
+                            <img src="{{user.image}}" class="img-responsive" width="50%" alt="Image ">
+                            <div class="d-flex form-group mt-3">
+                                <label for="usr "><i class="fas fa-user" style="font-size:20px"></i> Full Name:</label>
+                                <p class="text-info">{{user.fullname}}</p>
+                            </div>
+                            <div class="d-flex form-group">
+                                <label for="usr "><i class="fas fa-birthday-cake" style="font-size:20px"></i>
+                                    Birthday:</label>
+                                <p class="text-info">{{user.birthday}}</p>
+                            </div>
+                            <div class="d-flex form-group">
+                                <label for="usr "><i class="fas fa-dollar-sign" style="font-size:20px"></i>
+                                    Salary:</label>
+                                <p class="text-info">{{user.salary}}</p>
+                            </div>
+                        </div>
+                        <div class="w-60 ml-5 ">
+                            <h6>Contact Info</h6>
+                            <hr>
+                            <div class="d-flex form-group ">
+                                <label for="usr "><i class="fas fa-phone-volume" style="font-size:20px"></i> Phone
+                                    Number:</label>
+                                <p class="text-info">0{{user.phone}}</p>
+                            </div>
+                            <div class="d-flex form-group ">
+                                <label for="usr "><i class="fas fa-envelope" style="font-size:20px"></i> Email:</label>
+                                <p class="text-info">{{user.email}}</p>
+                            </div>
+                            <div class="d-flex form-group ">
+                                <label for="usr "><i class="fas fa-map-marker-alt" style="font-size:20px"></i>
+                                    Address:</label>
+                                <p class="text-info">{{user.address}}</p>
+                            </div>
+                            <hr>
+                            <div class="d-flex">
+                                <button type="button" (click)="ShowHide()" class="btn btn-info">Change Password</button>
+                                <a routerLink="/user-profile/edit"><button type="button" *ngIf="isEditInfo" class="btn btn-warning ml-5">Edit Info</button></a>
+                            </div>
+                            <form #passForm="ngForm" (submit)="add_account(accountForm)" *ngIf="isChangePass">
+                                <div class="form-group" style="margin-top: 13px">
+                                    <label for="usr">Password Old:</label>
+                                    <input type="password" class="form-control" [(ngModel)]="passOld" name="passOld" placeholder="Enter password old">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="usr">Password new:</label>
+                                    <input type="password" class="form-control" [(ngModel)]="passNew" name="passNew" placeholder="Enter password new">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Confirm password new:</label>
+                                    <input type="password" class="form-control" [(ngModel)]="passConfirm" name="passConfirm" placeholder="Confirm password new">
+                                </div>
+                                <div class="d-flex justify-content-center ">
+                                    <button type="button " class="btn btn-success rounded">Change</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
