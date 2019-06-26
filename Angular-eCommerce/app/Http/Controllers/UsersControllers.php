@@ -64,7 +64,21 @@ class UsersControllers extends Controller
     
     public function edit_profile(Request $request)
     {
-        //
+        $account=Account::find($request->id_account);
+
+        $account->birthday = $request->birthday;
+        $account->fullname = $request->fullname;
+        $account->phone = $request->phone;
+        $account->address = $request->address;
+        $account->image = $request->image;
+        $account->salary = $request->salary;
+
+        $account->save();
+
+        return response()->json([
+            'user'=>$account,
+            'message'=>'Profile has been updated !'  
+        ]);
     }
 
     public function edit_users(Request $request, $id)
