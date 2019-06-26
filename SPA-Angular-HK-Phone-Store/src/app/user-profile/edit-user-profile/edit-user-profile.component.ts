@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'app/service-server/token.service';
+import { NgForm } from '@angular/forms';
+import { UsersService } from 'app/service-server/users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-user-profile',
@@ -7,17 +10,13 @@ import { TokenService } from 'app/service-server/token.service';
   styleUrls: ['./edit-user-profile.component.scss']
 })
 export class EditUserProfileComponent implements OnInit {
-  imageDefault = '';
-  imgAvatar = '';
-  email = '';
-  fullname = '';
-  phone = '';
-  address = '';
-  birthday = '';
-  salary = '';
+  imgAvatar: any;
+  image = '';
   userToken: any;
   constructor(
     public Token: TokenService,
+    private User: UsersService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -26,16 +25,45 @@ export class EditUserProfileComponent implements OnInit {
 
   getData() {
     this.userToken = this.Token.getUser();
-    this.imageDefault = this.userToken.image;
-    this.email = this.userToken.email;
-    this.fullname = this.userToken.fullname;
-    this.phone = this.userToken.phone;
-    this.address = this.userToken.address;
-    this.birthday = this.userToken.birthday;
-    this.salary = this.userToken.salary;
+    this.imgAvatar = this.userToken.image;
   }
 
   reset() {
     this.getData();
+    this.image = null;
+  }
+
+  edit_profile(form: NgForm) {
+    this.userToken.fullname = form.value.fullname;
+    this.userToken.address = form.value.address;
+    this.userToken.phone = form.value.phone;
+    this.userToken.birthday = form.value.birthday;
+    this.userToken.salary = form.value.salary;
+    if (this.imgAvatar !== undefined) {
+      this.userToken.image = this.imgAvatar;
+    }
+    this.User.edit_profile(this.userToken).subscribe(data => {
+      this.Token.setUser(data['user'])
+      this.reset()
+    }, err => {
+
+    })
+    // this.router.navigate(['/user-profile']);
+  }
+
+  handleFileSelectImgAvarta(evt) {
+    const files = evt.target.files;
+    const file = files[0];
+
+    if (files && file) {
+      const reader = new FileReader();
+      reader.onload = this._handleReaderLoaded.bind(this);
+      reader.readAsBinaryString(file);
+    }
+  }
+
+  _handleReaderLoaded(readerEvt) {
+    const binaryString = readerEvt.target.result;
+    this.imgAvatar = 'data:image/jpeg;base64,' + btoa(binaryString);
   }
 }

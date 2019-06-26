@@ -43,9 +43,9 @@ export class UserProfileComponent implements OnInit {
 
   changepass(form: NgForm) {
     this.User.changepass(form.value).subscribe(data => {
-      console.log(data);
+
     }, err => {
-      console.log(err);
+
     })
 
     form.reset();

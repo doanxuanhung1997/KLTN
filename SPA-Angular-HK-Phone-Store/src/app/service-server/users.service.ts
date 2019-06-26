@@ -26,4 +26,8 @@ export class UsersService {
   changepass(data) {
     return this.http.post(this.api + 'changepass/' + this.user.id_account, data)
   }
+
+  edit_profile(data) {
+    return this.http.post(this.api + 'edit_profile', data)
+  }
 }
