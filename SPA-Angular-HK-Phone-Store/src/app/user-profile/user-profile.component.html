@@ -46,21 +46,24 @@
                             <hr>
                             <div class="d-flex">
                                 <button type="button" (click)="ShowHide()" class="btn btn-info">Change Password</button>
-                                <a routerLink="/user-profile/edit"><button type="button" *ngIf="isEditInfo" class="btn btn-warning ml-5">Edit Info</button></a>
+                                <a routerLink="/user-profile/edit"><button type="button" *ngIf="isEditInfo"
+                                        class="btn btn-warning ml-5">Edit Info</button></a>
                             </div>
-                            <form #passForm="ngForm" (submit)="add_account(accountForm)" *ngIf="isChangePass">
+                            <form #passForm="ngForm" (submit)="changepass(passForm)" *ngIf="isChangePass">
                                 <div class="form-group" style="margin-top: 13px">
                                     <label for="usr">Password Old:</label>
-                                    <input type="password" class="form-control" [(ngModel)]="passOld" name="passOld" placeholder="Enter password old">
+                                    <input type="password" class="form-control" [(ngModel)]="passOld" name="passOld"
+                                        placeholder="Enter password old">
                                 </div>
-
                                 <div class="form-group">
                                     <label for="usr">Password new:</label>
-                                    <input type="password" class="form-control" [(ngModel)]="passNew" name="passNew" placeholder="Enter password new">
+                                    <input type="password" class="form-control" [(ngModel)]="passNew" name="passNew"
+                                        placeholder="Enter password new">
                                 </div>
                                 <div class="form-group">
                                     <label for="usr">Confirm password new:</label>
-                                    <input type="password" class="form-control" [(ngModel)]="passConfirm" name="passConfirm" placeholder="Confirm password new">
+                                    <input type="password" class="form-control" [(ngModel)]="passConfirm"
+                                        name="passConfirm" placeholder="Confirm password new">
                                 </div>
                                 <div class="d-flex justify-content-center ">
                                     <button type="button " class="btn btn-success rounded">Change</button>

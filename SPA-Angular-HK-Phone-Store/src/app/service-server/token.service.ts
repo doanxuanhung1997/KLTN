@@ -17,9 +17,6 @@ export class TokenService {
   }
 
   setUser(user) {
-    // const a = {
-    //   'userName': user.email
-    // }
     localStorage.setItem('user', JSON.stringify(user));
   }
 
@@ -33,6 +30,10 @@ export class TokenService {
 
   remove() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+  }
+
+  removeUser() {
     localStorage.removeItem('user');
   }
 }
