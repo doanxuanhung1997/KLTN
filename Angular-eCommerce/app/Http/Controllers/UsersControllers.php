@@ -7,15 +7,10 @@ use App\Models\Account;
 use App\Models\Roles;
 use Illuminate\Support\Facades\Auth;
 use DB;
-use JWTAuth;
 use Hash;
 class UsersControllers extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index(Request $request)
     {
        
@@ -27,12 +22,6 @@ class UsersControllers extends Controller
         return $data;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function create(Request $request)
     {
 
@@ -56,40 +45,39 @@ class UsersControllers extends Controller
     {
          return response()->json(['message' => 'logout success !'],200);
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+   
+    public function changepass(Request $request, $id)
     {
-        //
+        $users=Account::find($id);
+        if (Hash::check($request->passOld, $users->password))
+        {
+            $users->password=bcrypt($request->passNew);
+            $users->save();
+            return response()->json(['message' => 'Change password success !'],200);
+        }
+        else
+        {
+           return response()->json(['message' => 'Current password is incorrect !'],401);
+        }
     }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    
+    
+    public function edit_profile(Request $request)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function edit_users(Request $request, $id)
+    {
+        //
+    }
+
     public function destroy(Request $request)
     {
        if ($request->id_account != null) {
             $account = Account::find($request->id_account);
             $account->delete();    
-           return 2;
+           return response()->json(['message' => 'Delete account success !'],200);
         }
     }
 }

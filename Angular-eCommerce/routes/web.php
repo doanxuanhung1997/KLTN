@@ -50,6 +50,8 @@ Route::get('getListAccount','UsersControllers@index');
 //API user
 Route::post('login','AuthController@login');
 Route::get('logout','UsersControllers@logout');
+Route::post('changepass/{id}','UsersControllers@changepass');
+Route::post('edit_profile/{id}','UsersControllers@edit_profile');
 
 Route::get('getListBill','BillController@index');
 Route::post('addBill','BillController@create');
