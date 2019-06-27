@@ -81,9 +81,39 @@ class UsersControllers extends Controller
         ]);
     }
 
-    public function edit_users(Request $request, $id)
+    public function getAccount($id)
     {
-        //
+        $data = DB::table('users')
+                    ->where('users.id_account',$id)
+                    ->leftJoin('roles', 'users.id_role', '=', 'roles.id_role')
+                    ->select('id_account','email', 'fullname','type_role','salary','phone','address','birthday','image')
+                    ->get();
+        return response()->json([
+            'user'=>$data
+        ],200);
+
+    }
+
+    public function editAccount(Request $request)
+    {
+        $account=Account::find($request->id_account);
+
+        $account->birthday = $request->birthday;
+        $account->fullname = $request->fullname;
+        $account->phone = $request->phone;
+        $account->address = $request->address;
+        $account->image = $request->image;
+        $account->salary = $request->salary;
+        if($request->password != "")
+        {
+            $account->password=bcrypt($request->password);
+        }
+        $account->save();
+
+        return response()->json([
+            'user'=>$account,
+            'message'=>'Profile account has been updated !'  
+        ],200);
     }
 
     public function destroy(Request $request)

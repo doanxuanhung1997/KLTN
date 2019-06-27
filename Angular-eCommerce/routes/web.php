@@ -45,6 +45,8 @@ Route::delete('deleteNews','NewsController@destroy');
 Route::post('addAccount','UsersControllers@create');
 Route::post('deleteAccount','UsersControllers@destroy');
 Route::get('getListAccount','UsersControllers@index');
+Route::get('getAccount/{id}','UsersControllers@getAccount');
+Route::post('editAccount','UsersControllers@editAccount');
 
 
 //API user
