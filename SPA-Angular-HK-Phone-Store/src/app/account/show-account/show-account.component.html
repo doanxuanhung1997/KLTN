@@ -10,33 +10,50 @@
                         <div class="w-40 mr-2">
                             <h6>Personal Info</h6>
                             <hr>
-                            <img src="../../../assets/image/avatar/nghe.jpg " class="img-responsive w-90 " alt="Image ">
-                            <div class="form-group mt-3">
-                                <label for="usr "><i class="fas fa-user" style="font-size:20px" ></i> Full Name:</label>
+                            <img src="{{account.image}}" class="img-responsive" width="50%" alt="Image ">
+                            <div class="d-flex form-group mt-3">
+                                <label for="usr "><i class="fas fa-user" style="font-size:20px"></i> Full Name:</label>
+                                <p class="text-info">{{account.fullname}}</p>
                             </div>
-                            <div class="form-group ">
-                                <label for="usr "><i class="fas fa-birthday-cake" style="font-size:20px"></i> Birthday:</label>
+                            <div class="d-flex form-group">
+                                <label for="usr "><i class="fas fa-birthday-cake" style="font-size:20px"></i>
+                                    Birthday:</label>
+                                <p class="text-info">{{account.birthday}}</p>
                             </div>
-                            <div class="form-group ">
-                                <label for="usr "><i class="fas fa-dollar-sign" style="font-size:20px"></i> Salary:</label>
+                            <div class="d-flex form-group">
+                                <label for="usr "><i class="fas fa-dollar-sign" style="font-size:20px"></i>
+                                    Salary:</label>
+                                <p class="text-info">{{account.salary}}</p>
                             </div>
                         </div>
                         <div class="w-60 ml-5 ">
                             <h6>Contact Info</h6>
                             <hr>
-                            <div class="form-group ">
-                                <label for="usr "><i class="fas fa-phone-volume" style="font-size:20px" ></i> Phone Number:</label>
+                            <div class="d-flex form-group ">
+                                <label for="usr "><i class="fas fa-phone-volume" style="font-size:20px"></i> Phone
+                                    Number:</label>
+                                <p class="text-info">0{{account.phone}}</p>
                             </div>
-                            <div class="form-group ">
+                            <div class="d-flex form-group ">
                                 <label for="usr "><i class="fas fa-envelope" style="font-size:20px"></i> Email:</label>
+                                <p class="text-info">{{account.email}}</p>
                             </div>
-                            <div class="form-group ">
-                                <label for="usr "><i class="fas fa-map-marker-alt" style="font-size:20px"></i> Address:</label>
+                            <div class="d-flex form-group ">
+                                <label for="usr "><i class="fas fa-map-marker-alt" style="font-size:20px"></i>
+                                    Address:</label>
+                                <p class="text-info">{{account.address}}</p>
+                            </div>
+                            <div class="d-flex form-group ">
+                                <label for="usr "><i class="fas fa-user-tie" style="font-size:20px"></i>
+                                    Role:</label>
+                                <p class="text-info">{{account.type_role}}</p>
+                            </div>
+                            <hr>
+                            <div class="d-flex">
+                                <a [routerLink]="['/account/edit-account',account.id_account]"><button type="button"
+                                        class="btn btn-info">Edit Info Account</button></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="d-flex justify-content-center ">
-                        <button type="button " class="btn btn-warning rounded ml-2 ">Cancel</button>
                     </div>
                 </div>
             </div>

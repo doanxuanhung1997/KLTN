@@ -19,4 +19,12 @@ export class AccountService {
   deleteAccount(data) {
     return this.http.post(this.api + 'deleteAccount', data)
   }
+
+  getAccount(id) {
+    return this.http.get(this.api + 'getAccount/' + id)
+  }
+
+  editAccount(data) {
+    return this.http.post(this.api + 'editAccount', data)
+  }
 }

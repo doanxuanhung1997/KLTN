@@ -1,63 +1,75 @@
 <div class="main-content">
     <div class="container-fluid">
-        <div class="d-flex flex-column align-items-center w-100">
-            <h2>Edit Account</h2>
-            <form action="/action_page.php" class="w-100 my-3">
-                <div class="d-flex px-3">
-                    <div class="w-50 mr-2">
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email" value="" placeholder="Enter email" name="email" disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-                        </div>
-                        <div class="form-group">
-                            <label for="pwd"> Re-Enter Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Re-Enter password" name="re-pwd">
-                        </div>
-                        <div class="form-group">
-                            <label for="usr">Full Name:</label>
-                            <input type="text" class="form-control" id="usr" placeholder="Enter Full Name" name="fullname">
-                        </div>
-                        <div class="form-group">
-                            <label for="usr">Birthday:</label>
-                            <input type="date" class="form-control" id="usr" name="birthday">
-                        </div>
-                    </div>
-                    <div class="w-50 ml-2">
-                        <div class="form-group">
-                            <label for="usr">Phone Number:</label>
-                            <input type="text" class="form-control" id="usr" placeholder="Enter Phone Number" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="usr">Address:</label>
-                            <input type="text" class="form-control" id="usr" placeholder="Enter Address" name="address">
-                        </div>
-                        <div class="form-group">
-                            <label for="usr">Role:</label>
-                            <select class="form-control" id="sel1" name="role">
-                                        <option>Employees</option>
-                                        <option>Admin</option>
-                                      </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="usr">Salary:</label>
-                            <input type="text" class="form-control" id="usr" placeholder="Enter Salary" name="salary">
-                        </div>
-
-                        <label for="usr">Image-Avatar:</label><br>
-                        <input type="file" class="rounded bg-info" id="myFile" name="avatar">
-
-                    </div>
+        <div class="row">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    <h4 class="card-title text-center">Edit Profile</h4>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-success rounded mr-2">Submit</button>
-                    <button type="button" class="btn btn-warning rounded ml-2">Cancel</button>
-                </div>
+                <div class="card-body table-responsive">
+                    <form #profileForm="ngForm" (submit)="edit_account(profileForm)">
+                        <div class="d-flex">
+                            <div class="p-2 w-50">
+                                <div class="d-flex">
+                                    <div class="mr-5">
+                                        <label for="usr">Avatar:</label><br>
+                                        <input type="file" class="rounded bg-info" [(ngModel)]="image" name="image"
+                                            (change)="handleFileSelectImgAvarta($event)">
+                                    </div>
+                                    <img [src]="imgAvatar" width="33%" height="33%" class="img-responsive mt-2"
+                                        alt="Image">
+                                </div>
+                                <div class="form-group" style="margin-top: 13px">
+                                    <label for="usr">Email:</label>
+                                    <input type="email" disabled class="form-control" [(ngModel)]="account.email"
+                                        name="email" placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Full Name:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="account.fullname"
+                                        name="fullname" placeholder="Enter full name">
+                                </div>
 
-            </form>
+                            </div>
+                            <div class="p-2 w-50">
+                                <div class="form-group">
+                                    <label for="usr">Address:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="account.address" name="address"
+                                        placeholder="Enter address">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Phone Number:</label>
+                                    <input type="number" class="form-control" [(ngModel)]="account.phone" name="phone"
+                                        placeholder="Enter phone number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Birthday:</label>
+                                    <input type="date" class="form-control" [(ngModel)]="account.birthday"
+                                        name="birthday" placeholder="Enter birthday">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Salary:</label>
+                                    <input type="number" class="form-control" [(ngModel)]="account.salary" name="salary"
+                                        placeholder="Enter salary">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Password:</label>
+                                    <input type="password" class="form-control" [(ngModel)]="passNew" name="passNew"
+                                        placeholder="Enter Password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Cofirm Password:</label>
+                                    <input type="password" class="form-control" [(ngModel)]="passCofirm"
+                                        name="passCofirm" placeholder="Cofirm Password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-success rounded px-4 mr-2">Save</button>
+                            <button type="button" (click)="reset()" class="btn btn-info rounded mr-2">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

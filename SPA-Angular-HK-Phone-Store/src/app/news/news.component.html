@@ -29,14 +29,18 @@
                                 <td>{{item.creator}}</td>
                                 <td>
                                     <a [routerLink]="['/news/edit-news', item.id_news]">
-                                        <button mat-raised-button type="button" matTooltip="Show" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                        <button mat-raised-button type="button" matTooltip="Show"
+                                            [matTooltipPosition]="'above'"
+                                            class="btn btn-info btn-link btn-sm btn-just-icon">
                                             <i class="fas fa-eye mb-3"></i>
                                         </button>
                                     </a>
                                 </td>
                                 <td>
-                                    <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                                            <i class="material-icons">close</i>
+                                    <button mat-raised-button type="button" matTooltip="Remove"
+                                        [matTooltipPosition]="'above'"
+                                        class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                        <i class="material-icons">close</i>
                                     </button>
                                 </td>
                             </tr>
@@ -54,11 +58,13 @@
                     <form action="/action_page.php">
                         <div class="form-group">
                             <label for="usr">Title:</label>
-                            <input type="text" class="form-control" id="usr" placeholder="Enter Name Company Product" name="name">
+                            <input type="text" class="form-control" id="usr" placeholder="Enter Name Company Product"
+                                name="name">
                         </div>
                         <div class="form-group">
                             <label for="usr">Content:</label>
-                            <textarea class="form-control" rows="10" id="content" placeholder="Enter Content Technology" name="content"></textarea>
+                            <textarea class="form-control" rows="10" id="content" placeholder="Enter Content Technology"
+                                name="content"></textarea>
                         </div>
                         <label for="usr">Image-News:</label><br>
                         <input type="file" class="rounded bg-info" id="myFile" name="avatar">

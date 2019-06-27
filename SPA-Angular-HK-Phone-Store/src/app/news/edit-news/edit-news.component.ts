@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditNewsComponent implements OnInit {
   item: any;
-  private sub: any;
+  // private sub: any;
   id: number;
   constructor(
     private new_service: NewsService,
@@ -17,7 +17,8 @@ export class EditNewsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
+    // this.sub = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
       this.inforNews(this.id);
     });
