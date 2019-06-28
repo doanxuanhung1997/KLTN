@@ -8,5 +8,6 @@ class Phone extends Model
 {
     protected $table='Phone';
     protected $primaryKey='p_id';
+    public $timestamps = false;
     protected $guarded=[];
 }

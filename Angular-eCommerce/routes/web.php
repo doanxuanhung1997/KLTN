@@ -36,6 +36,9 @@ Route::post('deleteTypePhone','TypePhoneController@delete_typephone');
 Route::get('getTypePhone/{id}','TypePhoneController@getTypePhone');
 Route::get('getListPhone/{id}','TypePhoneController@getListPhone');
 
+Route::post('addPhone','TypePhoneController@addPhone');
+Route::post('deletePhone','TypePhoneController@deletePhone');
+
 //API News
 Route::post('addNews','NewsController@create');
 Route::post('updateNews','NewsController@update');

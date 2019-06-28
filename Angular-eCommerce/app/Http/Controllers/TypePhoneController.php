@@ -103,4 +103,25 @@ class TypePhoneController extends Controller
             'listphone'=>$lp
         ],200);
     }
+
+    function addPhone(Request $request){
+        $p= new Phone();
+        $p->tp_id=$request->tp_id;
+        $p->p_color=$request->p_color;
+        $p->p_status=0;
+        $p->p_date_add=date('Y-m-d');
+
+        $p->save();
+        return response()->json([
+            'phone'=>$p,
+            'message'=>'Created new phone success'
+        ],200);
+    }
+
+    function deletePhone(Request $request){
+        $p=Phone::find($request->p_id);
+        $p->delete();   
+         return response()->json([
+            'message'=>'Deleted phone success'
+        ],200);    }
 }
