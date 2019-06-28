@@ -42,14 +42,21 @@ export class UserProfileComponent implements OnInit {
   }
 
   changepass(form: NgForm) {
-    this.User.changepass(form.value).subscribe(data => {
+    if (form.value.passNew.length < 6 || form.value.passNew.length > 32) {
+      return alert('Password lengths range from 6-32 characters !');
+    } else {
+      if (form.value.passNew !== form.value.passConfirm) {
+        return alert('Confirm password is not the same !');
+      }
+      else {
+        this.User.changepass(form.value).subscribe(data => {
+          form.reset();
+          this.isChangePass = !this.isChangePass;
+          this.isEditInfo = !this.isEditInfo;
+        }, err => {
 
-    }, err => {
-
-    })
-
-    form.reset();
-    this.isChangePass = !this.isChangePass;
-    this.isEditInfo = !this.isEditInfo;
+        })
+      }
+    }
   }
 }
