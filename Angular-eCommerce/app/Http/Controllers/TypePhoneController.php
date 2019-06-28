@@ -75,14 +75,47 @@ class TypePhoneController extends Controller
         $tp->tp_discount = $request->tp_discount;
         $tp->save();
 
-        return 1;
+        return response()->json([
+            'message'=>'Created typephone new success !',
+            'typephone'=>$tp
+        ],200);
+    }
+
+    function editTypePhone(Request $request){
+        $tp=TypePhone::find($request->tp_id);
+        $tp->tp_name = $request->tp_name;
+        $tp->pc_id = $request->pc_id;
+        $tp->tp_describe = $request->tp_describe;
+        $tp->tp_price = $request->tp_price;
+        $tp->tp_img1 = $request->tp_img1;
+        $tp->tp_img2 = $request->tp_img2;
+        $tp->tp_img3 = $request->tp_img3;
+        $tp->tp_img4 = $request->tp_img4;
+        $tp->tp_img5 = $request->tp_img5;
+        $tp->tp_screen = $request->tp_screen;
+        $tp->tp_operating_system = $request->tp_operating_system;
+        $tp->tp_rear_camera = $request->tp_rear_camera;
+        $tp->tp_front_camera = $request->tp_front_camera;
+        $tp->tp_CPU = $request->tp_CPU;
+        $tp->tp_RAM = $request->tp_RAM;
+        $tp->tp_memory = $request->tp_memory;
+        $tp->tp_battery = $request->tp_battery;
+        $tp->tp_discount = $request->tp_discount;
+        $tp->save();
+
+        return response()->json([
+            'message'=>'Updated typephone success !',
+            'typephone'=>$tp
+        ],200);
     }
 
     function delete_typephone(Request $request){
         if ($request->tp_id != null) {
             $tp = TypePhone::find($request->tp_id);
             $tp->delete();    
-           return 2;
+            return response()->json([
+                'message'=>'Deleted typephone success !'
+            ],200);
         }
     }
 
