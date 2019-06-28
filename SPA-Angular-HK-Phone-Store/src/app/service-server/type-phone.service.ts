@@ -27,4 +27,12 @@ export class TypePhoneService {
   getListPhone(id) {
     return this.http.get(this.api + 'getListPhone/' + id)
   }
+
+  deletePhone(data) {
+    return this.http.post(this.api + 'deletePhone', data)
+  }
+
+  addPhone(data) {
+    return this.http.post(this.api + 'addPhone', data)
+  }
 }
