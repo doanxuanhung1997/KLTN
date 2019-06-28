@@ -19,6 +19,8 @@ import { CreateTypePhoneComponent } from '../../type-phone/create-type-phone/cre
 import { EditNewsComponent } from '../../news/edit-news/edit-news.component';
 import { BillComponent } from 'app/bill/bill.component';
 import { EditUserProfileComponent } from 'app/user-profile/edit-user-profile/edit-user-profile.component';
+import { ShowTypePhoneComponent } from 'app/type-phone/show-type-phone/show-type-phone.component';
+import { EditTypePhoneComponent } from 'app/type-phone/edit-type-phone/edit-type-phone.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -30,6 +32,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'list-product', component: ListProductComponent },
     { path: 'type-phone', component: TypePhoneComponent },
     { path: 'type-phone/create-type-phone', component: CreateTypePhoneComponent },
+    { path: 'type-phone/show-type-phone/:id', component: ShowTypePhoneComponent },
+    { path: 'type-phone/edit-type-phone/:id', component: EditTypePhoneComponent },
     { path: 'bill', component: BillComponent },
     { path: 'news', component: NewsComponent },
     { path: 'news/edit-news/:id', component: EditNewsComponent },

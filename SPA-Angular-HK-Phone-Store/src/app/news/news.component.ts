@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
+  p: Number = 1;
   Items: any
   constructor(
     private new_service: NewsService,

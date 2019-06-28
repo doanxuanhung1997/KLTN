@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
+  p: Number = 1;
   Items: any;
   account = new Account();
   constructor(

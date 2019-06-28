@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./type-phone.component.scss']
 })
 export class TypePhoneComponent implements OnInit {
+  p: Number = 1;
   Items: any;
   tp = new TypePhone();
   constructor(

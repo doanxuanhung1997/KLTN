@@ -1,0 +1,126 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card">
+        <div class="card-header card-header-info">
+          <h4 class="card-title text-center">Phone</h4>
+        </div>
+        <div class="w-100 my-3">
+          <div class="d-flex px-4">
+            <div class="w-40">
+              <h6>Image</h6>
+              <hr>
+              <div class="d-flex justify-content-center form-group">
+                <img src="{{tp.tp_img1}}" class="img-responsive" width="50%" alt="Image ">
+              </div>
+              <div class="d-flex justify-content-center form-group">
+                <img src="{{tp.tp_img1}}" class="img-responsive" width="10%" alt="Image ">
+                <img src="{{tp.tp_img2}}" class="img-responsive" width="10%" alt="Image ">
+                <img src="{{tp.tp_img3}}" class="img-responsive" width="10%" alt="Image ">
+                <img src="{{tp.tp_img4}}" class="img-responsive" width="10%" alt="Image ">
+                <img src="{{tp.tp_img5}}" class="img-responsive" width="10%" alt="Image ">
+              </div>
+              <hr>
+              <div class="card">
+                <div class="card-header card-header-info">
+                  <h4 class="card-title text-center">List Phone</h4>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-info">
+                      <th>Id_phone</th>
+                      <th>Color</th>
+                      <th>Status</th>
+                      <th></th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of listPhone | paginate: { itemsPerPage: 5, currentPage: p }">
+                        <td>#p{{item.p_id}}</td>
+                        <td>{{item.p_color}}</td>
+                        <td>
+                          {{item.p_status}}
+                        </td>
+                        <td>
+                          <button mat-raised-button (click)="delete(item.pc_id)" type="button" matTooltip="Remove"
+                            [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                            <i class="material-icons">close</i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="d-flex justify-content-center">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <form class="d-flex" #tpForm="ngForm" (submit)="add(tpForm)">
+                <button type="button" class="btn btn-info">Add Phone</button>
+                <input type="text" class=" ml-5 mt-2 form-control" [(ngModel)]="p_color" name="p_color"
+                  placeholder="Enter Phone Color">
+              </form>
+            </div>
+            <div class="w-60 ml-5">
+              <h6>Phone Info</h6>
+              <hr>
+              <div class="d-flex form-group">
+                <label for="usr "> Phone:</label>
+                <p class="text-info">{{tp.tp_name}}</p>
+              </div>
+              <div class="d-flex form-group">
+                <label for="usr "> Company:</label>
+                <p class="text-info">{{tp.pc_name}}</p>
+              </div>
+              <div class="d-flex form-group">
+                <label for="usr "> Describe:</label>
+                <p class="text-info">{{tp.tp_describe}}</p>
+              </div>
+              <div class="d-flex form-group">
+                <label for="usr ">Price:</label>
+                <p class="text-info">{{tp.tp_price}}</p>
+              </div>
+              <div class="d-flex form-group">
+                <label for="usr "> Discount:</label>
+                <p class="text-info">{{tp.tp_discount}}</p>
+              </div>
+              <div class="d-flex form-group">
+                <label for="usr "> Screen:</label>
+                <p class="text-info">{{tp.tp_screen}}</p>
+              </div>
+              <div class="d-flex form-group">
+                <label for="usr "> Operating System:</label>
+                <p class="text-info">{{tp.tp_operating_system}}</p>
+              </div>
+              <div class="d-flex form-group">
+                <label for="usr "> Rear Camera:</label>
+                <p class="text-info">{{tp.tp_rear_camera}}</p>
+              </div>
+              <div class="d-flex form-group">
+                <label for="usr "> Front Camera:</label>
+                <p class="text-info">{{tp.tp_front_camera}}</p>
+              </div>
+              <div class="d-flex form-group">
+                <label for="usr "> CPU:</label>
+                <p class="text-info">{{tp.tp_CPU}}</p>
+              </div>
+
+              <div class="d-flex form-group">
+                <label for="usr "> RAM:</label>
+                <p class="text-info">{{tp.tp_RAM}}</p>
+              </div>
+              <div class="d-flex form-group">
+                <label for="usr "> Memory:</label>
+                <p class="text-info">{{tp.tp_memory}}</p>
+              </div>
+              <div class="d-flex form-group">
+                <label for="usr "> Battery:</label>
+                <p class="text-info">{{tp.tp_battery}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

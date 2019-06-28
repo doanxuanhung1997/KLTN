@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
@@ -33,6 +34,8 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+import { ShowTypePhoneComponent } from 'app/type-phone/show-type-phone/show-type-phone.component';
+import { EditTypePhoneComponent } from 'app/type-phone/edit-type-phone/edit-type-phone.component';
 @NgModule({
   imports: [
     FormsModule,
@@ -46,6 +49,7 @@ import {
     MatSelectModule,
     MatTooltipModule,
     HttpClientModule,
+    NgxPaginationModule,
   ],
   declarations: [
     DashboardComponent,
@@ -64,6 +68,8 @@ import {
     ListProductComponent,
     TypePhoneComponent,
     CreateTypePhoneComponent,
+    ShowTypePhoneComponent,
+    EditTypePhoneComponent,
     NewsComponent,
     EditNewsComponent,
     BillComponent,

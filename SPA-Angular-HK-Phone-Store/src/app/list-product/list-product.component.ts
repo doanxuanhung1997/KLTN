@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 
 
 export class ListProductComponent implements OnInit {
+  p: Number = 1;
   pc = new PhoneCompany();
   Items: any;
   // tslint:disable-next-line: max-line-length

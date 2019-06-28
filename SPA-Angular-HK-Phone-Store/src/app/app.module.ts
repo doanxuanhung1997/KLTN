@@ -31,7 +31,6 @@ import { NewsComponent } from './news/news.component';
 import { BillComponent } from './bill/bill.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-
 @NgModule({
   imports: [
     HttpClientModule,

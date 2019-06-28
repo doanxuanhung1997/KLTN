@@ -1,6 +1,7 @@
 export class TypePhone {
     public tp_id: number;
     public pc_id: number;
+    public pc_name: string;
     public tp_name: string;
     public tp_describe: string;
     public tp_price: number;

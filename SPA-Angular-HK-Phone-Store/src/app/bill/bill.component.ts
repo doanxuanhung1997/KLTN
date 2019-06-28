@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./bill.component.scss']
 })
 export class BillComponent implements OnInit {
+  p: Number = 1;
   Items: any;
   constructor(
     private bill_service: BillService,
