@@ -65,13 +65,14 @@ export class ShowTypePhoneComponent implements OnInit {
   }
 
   addPhone(form: NgForm) {
-    if (form.value.p_color === undefined) {
+    if (form.value.p_color === undefined || form.value.p_color === null) {
       return alert('Colors are not empty')
     } else {
       this.phone.p_color = form.value.p_color;
       this.TypePhoneServive.addPhone(this.phone).subscribe(
         data => {
           this.getListPhone();
+          form.reset();
         },
         err => {
 
@@ -79,7 +80,6 @@ export class ShowTypePhoneComponent implements OnInit {
 
       )
     }
-    form.reset();
   }
 
   showImage(event) {

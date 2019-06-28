@@ -1,134 +1,117 @@
 <div class="main-content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="card">
-        <div class="card-header card-header-info">
-          <h4 class="card-title text-center">Edit Type Phone #{{tp.tp_id}}</h4>
-        </div>
-        <div class="card-body table-responsive">
-          <form #tpForm="ngForm" (submit)="add(tpForm)">
-            <div class="d-flex">
-              <div class="p-2 w-50">
-                <div class="form-group">
-                  <label for="usr">Name Phone:</label>
-                  <input type="text" class="form-control" [(ngModel)]="tp.tp_name" name="tp_name"
-                    placeholder="Enter Phone Name">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    <h4 class="card-title text-center">Edit Type Phone #{{tp.tp_id}}</h4>
                 </div>
-                <div class="form-group">
-                  <label for="usr">Phone Company:</label>
-                  <select class="form-control" [(ngModel)]="tp.pc_id" name="pc_id">
+                <div class="card-body table-responsive">
+                    <form #tpForm="ngForm" (submit)="editTypePhone(tpForm)">
+                        <div class="d-flex">
+                            <div class="p-2 w-50">
+                                <div class="form-group">
+                                    <label for="usr">Name Phone:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp.tp_name" name="tp_name" placeholder="Enter Phone Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Phone Company:</label>
+                                    <select class="form-control" [(ngModel)]="tp.pc_id" name="pc_id">
                     <option *ngFor="let item of listPC" [value]="item.pc_id">{{item.pc_name}}
                     </option>
                   </select>
-                </div>
-                <div class="form-group">
-                  <label for="usr">Describe Phone:</label>
-                  <textarea class="form-control" rows="5" id="tp_describe" placeholder="Enter Phone Describe"
-                    [(ngModel)]="tp.tp_describe" name="tp_describe"></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="usr">Price:</label>
-                  <input type="text" class="form-control" [(ngModel)]="tp.tp_price" name="tp_price"
-                    placeholder="Enter Phone Price">
-                </div>
-                <div class="d-flex mb-2">
-                  <div class="mr-5">
-                    <label for="usr">Image 1:</label><br>
-                    <input type="file" class="rounded bg-info" [(ngModel)]="tp_img1" name="tp_img1"
-                      (change)="handleFileSelectImg1($event)">
-                  </div>
-                  <img src="{{img1}}" class="img-responsive mt-2" width="10%" height="10%" alt="Image">
-                </div>
-                <div class="d-flex mb-2">
-                  <div class="mr-5">
-                    <label for="usr">Image 2:</label><br>
-                    <input type="file" class="rounded bg-info" [(ngModel)]="tp_img2" name="tp_img2"
-                      (change)="handleFileSelectImg2($event)">
-                  </div>
-                  <img src="{{img2}}" class="img-responsive mt-2" width="10%" height="10%" alt="Image">
-                </div>
-                <div class="d-flex mb-2">
-                  <div class="mr-5">
-                    <label for="usr">Image 3:</label><br>
-                    <input type="file" class="rounded bg-info" [(ngModel)]="tp_img3" name="tp_img3"
-                      (change)="handleFileSelectImg3($event)">
-                  </div>
-                  <img src="{{img3}}" class="img-responsive  mt-2" width="10%" height="10%" alt="Image">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Describe Phone:</label>
+                                    <textarea class="form-control" rows="5" id="tp_describe" placeholder="Enter Phone Describe" [(ngModel)]="tp.tp_describe" name="tp_describe"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Price:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp.tp_price" name="tp_price" placeholder="Enter Phone Price">
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <div class="mr-5">
+                                        <label for="usr">Image 1:</label><br>
+                                        <input type="file" class="rounded bg-info" [(ngModel)]="tp_img1" name="tp_img1" (change)="handleFileSelectImg1($event)">
+                                    </div>
+                                    <img src="{{img1}}" class="img-responsive mt-2" width="10%" height="10%" alt="Image">
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <div class="mr-5">
+                                        <label for="usr">Image 2:</label><br>
+                                        <input type="file" class="rounded bg-info" [(ngModel)]="tp_img2" name="tp_img2" (change)="handleFileSelectImg2($event)">
+                                    </div>
+                                    <img src="{{img2}}" class="img-responsive mt-2" width="10%" height="10%" alt="Image">
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <div class="mr-5">
+                                        <label for="usr">Image 3:</label><br>
+                                        <input type="file" class="rounded bg-info" [(ngModel)]="tp_img3" name="tp_img3" (change)="handleFileSelectImg3($event)">
+                                    </div>
+                                    <img src="{{img3}}" class="img-responsive  mt-2" width="10%" height="10%" alt="Image">
 
-                </div>
-                <div class="d-flex mb-2">
-                  <div class="mr-5">
-                    <label for="usr">Image 4:</label><br>
-                    <input type="file" class="rounded bg-info" [(ngModel)]="tp_img4" name="tp_img4"
-                      (change)="handleFileSelectImg4($event)">
-                  </div>
-                  <img src="{{img4}}" class="img-responsive mt-2" width="10%" height="10%" alt="Image">
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <div class="mr-5">
+                                        <label for="usr">Image 4:</label><br>
+                                        <input type="file" class="rounded bg-info" [(ngModel)]="tp_img4" name="tp_img4" (change)="handleFileSelectImg4($event)">
+                                    </div>
+                                    <img src="{{img4}}" class="img-responsive mt-2" width="10%" height="10%" alt="Image">
 
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <div class="mr-5">
+                                        <label for="usr">Image 5:</label><br>
+                                        <input type="file" class="rounded bg-info" [(ngModel)]="tp_img5" name="tp_img5" (change)="handleFileSelectImg5($event)">
+                                    </div>
+                                    <img src="{{img5}}" class="img-responsive mt-2" width="10%" height="10%" alt="Image">
+                                </div>
+                            </div>
+                            <div class="p-2 w-50">
+                                <div class="form-group">
+                                    <label for="usr">Screen:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp.tp_screen" name="tp_screen" placeholder="Enter Phone Screen Parameters">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Pperating System:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp.tp_operating_system" name="tp_operating_system" placeholder="Enter Phone Pperating System Parameters">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Rear Camera:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp.tp_rear_camera" name="tp_rear_camera" placeholder="Enter Phone Rear Camera Parameters">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Front Camera:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp.tp_front_camera" name="tp_front_camera" placeholder="Enter Phone Front Camera Parameters">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">CPU:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp.tp_CPU" name="tp_CPU" placeholder="Enter Phone CPU Parameters">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">RAM:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp.tp_RAM" name="tp_RAM" placeholder="Enter Phone RAM Parameters">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Memory:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp.tp_memory" name="tp_memory" placeholder="Enter Phone Memory Parameters">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Battery:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp.tp_battery" name="tp_battery" placeholder="Enter Phone Battery Parameters">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Discounts:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp.tp_discount" name="tp_discount" placeholder="Enter Phone Discounts">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-success rounded mr-2">Edit</button>
+                            <button type="button" (click)="reset()" class="btn btn-info rounded mr-2">Reset</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="d-flex mb-2">
-                  <div class="mr-5">
-                    <label for="usr">Image 5:</label><br>
-                    <input type="file" class="rounded bg-info" [(ngModel)]="tp_img5" name="tp_img5"
-                      (change)="handleFileSelectImg5($event)">
-                  </div>
-                  <img src="{{img5}}" class="img-responsive mt-2" width="10%" height="10%" alt="Image">
-                </div>
-              </div>
-              <div class="p-2 w-50">
-                <div class="form-group">
-                  <label for="usr">Screen:</label>
-                  <input type="text" class="form-control" [(ngModel)]="tp.tp_screen" name="tp_screen"
-                    placeholder="Enter Phone Screen Parameters">
-                </div>
-                <div class="form-group">
-                  <label for="usr">Pperating System:</label>
-                  <input type="text" class="form-control" [(ngModel)]="tp.tp_operating_system"
-                    name="tp_operating_system" placeholder="Enter Phone Pperating System Parameters">
-                </div>
-                <div class="form-group">
-                  <label for="usr">Rear Camera:</label>
-                  <input type="text" class="form-control" [(ngModel)]="tp.tp_rear_camera" name="tp_rear_camera"
-                    placeholder="Enter Phone Rear Camera Parameters">
-                </div>
-                <div class="form-group">
-                  <label for="usr">Front Camera:</label>
-                  <input type="text" class="form-control" [(ngModel)]="tp.tp_front_camera" name="tp_front_camera"
-                    placeholder="Enter Phone Front Camera Parameters">
-                </div>
-                <div class="form-group">
-                  <label for="usr">CPU:</label>
-                  <input type="text" class="form-control" [(ngModel)]="tp.tp_CPU" name="tp_CPU"
-                    placeholder="Enter Phone CPU Parameters">
-                </div>
-                <div class="form-group">
-                  <label for="usr">RAM:</label>
-                  <input type="text" class="form-control" [(ngModel)]="tp.tp_RAM" name="tp_RAM"
-                    placeholder="Enter Phone RAM Parameters">
-                </div>
-                <div class="form-group">
-                  <label for="usr">Memory:</label>
-                  <input type="text" class="form-control" [(ngModel)]="tp.tp_memory" name="tp_memory"
-                    placeholder="Enter Phone Memory Parameters">
-                </div>
-                <div class="form-group">
-                  <label for="usr">Battery:</label>
-                  <input type="text" class="form-control" [(ngModel)]="tp.tp_battery" name="tp_battery"
-                    placeholder="Enter Phone Battery Parameters">
-                </div>
-                <div class="form-group">
-                  <label for="usr">Discounts:</label>
-                  <input type="text" class="form-control" [(ngModel)]="tp.tp_discount" name="tp_discount"
-                    placeholder="Enter Phone Discounts">
-                </div>
-              </div>
             </div>
-            <div class="d-flex justify-content-center">
-              <button type="submit" (click)="add()" class="btn btn-success rounded mr-2">Create</button>
-              <button type="reset" class="btn btn-info rounded mr-2">Reset</button>
-            </div>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
 </div>
