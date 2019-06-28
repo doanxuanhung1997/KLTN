@@ -33,6 +33,8 @@ Route::post('addPhoneCompany','PhoneCompanyController@create');
 Route::get('getListTypePhone','TypePhoneController@get_list');
 Route::post('addTypePhone','TypePhoneController@add_typephone');
 Route::post('deleteTypePhone','TypePhoneController@delete_typephone');
+Route::get('getTypePhone/{id}','TypePhoneController@getTypePhone');
+Route::get('getListPhone/{id}','TypePhoneController@getListPhone');
 
 //API News
 Route::post('addNews','NewsController@create');

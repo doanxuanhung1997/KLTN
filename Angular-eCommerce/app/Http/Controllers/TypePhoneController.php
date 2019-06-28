@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TypePhone;
+use App\Models\Phone;
 use App\Models\PhoneCompany;
 use DB;
 
@@ -83,5 +84,23 @@ class TypePhoneController extends Controller
             $tp->delete();    
            return 2;
         }
+    }
+
+    function getTypePhone($id){
+        $tp = DB::table('typephone')
+            ->leftJoin('phonecompany', 'typephone.pc_id', '=', 'phonecompany.pc_id')
+            ->where('typephone.tp_id',$id)
+            ->get();
+
+        return response()->json([
+            'typephone'=>$tp
+        ],200);
+    }
+
+    function getListPhone($id){
+        $lp=Phone::where('phone.tp_id',$id)->orderBy('p_color', 'asc')->get();
+        return response()->json([
+            'listphone'=>$lp
+        ],200);
     }
 }
