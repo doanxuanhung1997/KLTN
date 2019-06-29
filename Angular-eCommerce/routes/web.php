@@ -45,7 +45,7 @@ Route::post('addNews','NewsController@create');
 Route::post('updateNews','NewsController@update');
 Route::get('showNews/{id}','NewsController@show');
 Route::get('getNews','NewsController@index');
-Route::delete('deleteNews','NewsController@destroy');
+Route::post('deleteNews','NewsController@destroy');
 
 //API Account
 Route::post('addAccount','UsersControllers@create');
