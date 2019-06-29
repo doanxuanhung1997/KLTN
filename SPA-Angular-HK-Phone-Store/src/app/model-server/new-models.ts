@@ -4,5 +4,5 @@ export class News {
     content: string;
     image: string;
     date_created: string;
-    creator: string;
+    creator: number;
 }

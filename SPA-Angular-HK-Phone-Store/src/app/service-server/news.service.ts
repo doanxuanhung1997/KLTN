@@ -10,8 +10,8 @@ export class NewsService {
   constructor(private http: HttpClient) {
   }
 
-  addPhoneCompany(data) {
-    return this.http.post(this.api + 'addPhoneCompany', data)
+  addNews(data) {
+    return this.http.post(this.api + 'addNews', data)
   }
 
   getNews() {
@@ -22,10 +22,12 @@ export class NewsService {
     return this.http.get(this.api + 'showNews/' + id)
   }
 
-  deletePhoneCompany(id) {
-    console.log('Delete Product id ' + id);
-    return this.http.get(this.api + 'deletePhoneCompany/' + id)
+  deleteNews(data) {
+    return this.http.post(this.api + 'deleteNews', data)
   }
 
+  updateNews(data) {
+    return this.http.post(this.api + 'updateNews', data)
+  }
 
 }

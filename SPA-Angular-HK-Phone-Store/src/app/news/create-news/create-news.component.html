@@ -3,27 +3,27 @@
         <div class="row">
             <div class="card">
                 <div class="card-header card-header-info">
-                    <h4 class="card-title text-center">Edit News</h4>
+                    <h4 class="card-title text-center">Create News</h4>
                 </div>
                 <div class="card-body table-responsive">
-                    <form #newsForm="ngForm" (submit)="editNews(newsForm)">
+                    <form #newsForm="ngForm" (submit)="createNews(newsForm)">
                         <div class="form-group">
                             <label for="usr">Title:</label>
-                            <input type="text" class="form-control" id="title" [(ngModel)]="news.title" placeholder="Enter Title News" name="title">
+                            <input type="text" class="form-control" id="title" [(ngModel)]="title" placeholder="Enter Title News" name="title">
                         </div>
                         <div class="d-flex">
                             <div class="mr-5">
                                 <label for="usr">Image-News:</label><br>
                                 <input type="file" class="rounded bg-info" [(ngModel)]="image" name="image" (change)="handleFileSelectImg1($event)">
                             </div>
-                            <img src="{{imgAvatar}}" width="50%" class="img-responsive mt-2" alt="">
+                            <img [src]="imgAvatar" width="50%" class="img-responsive mt-2" alt="">
                         </div>
                         <div class="form-group">
                             <label for="usr">Content:</label>
-                            <textarea class="form-control" rows="15" id="content" [(ngModel)]="news.content" placeholder="Enter Content Technology" name="content"></textarea>
+                            <textarea class="form-control" rows="15" id="content" [(ngModel)]="content" placeholder="Enter Content Technology" name="content"></textarea>
                         </div>
                         <div class="d-flex justify-content-center mt-3">
-                            <button type="submit" class="btn btn-success rounded mr-2">Save</button>
+                            <button type="submit" class="btn btn-success rounded mr-2">Create</button>
                         </div>
                     </form>
                 </div>

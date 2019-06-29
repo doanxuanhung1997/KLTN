@@ -21,6 +21,8 @@ import { BillComponent } from 'app/bill/bill.component';
 import { EditUserProfileComponent } from 'app/user-profile/edit-user-profile/edit-user-profile.component';
 import { ShowTypePhoneComponent } from 'app/type-phone/show-type-phone/show-type-phone.component';
 import { EditTypePhoneComponent } from 'app/type-phone/edit-type-phone/edit-type-phone.component';
+import { ShowNewsComponent } from 'app/news/show-news/show-news.component';
+import { CreateNewsComponent } from 'app/news/create-news/create-news.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -37,6 +39,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'bill', component: BillComponent },
     { path: 'news', component: NewsComponent },
     { path: 'news/edit-news/:id', component: EditNewsComponent },
+    { path: 'news/show-news/:id', component: ShowNewsComponent },
+    { path: 'news/create-news', component: CreateNewsComponent },
     { path: 'user-profile', component: UserProfileComponent },
     { path: 'user-profile/edit', component: EditUserProfileComponent },
 

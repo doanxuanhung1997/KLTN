@@ -21,6 +21,7 @@ import { ListProductComponent } from 'app/list-product/list-product.component';
 import { TypePhoneComponent } from 'app/type-phone/type-phone.component';
 import { CreateTypePhoneComponent } from '../../type-phone/create-type-phone/create-type-phone.component';
 import { NewsComponent } from 'app/news/news.component';
+import { ShowNewsComponent } from 'app/news/show-news/show-news.component';
 import { EditNewsComponent } from '../../news/edit-news/edit-news.component';
 import { BillComponent } from 'app/bill/bill.component';
 import { EditUserProfileComponent } from 'app/user-profile/edit-user-profile/edit-user-profile.component';
@@ -36,6 +37,7 @@ import {
 } from '@angular/material';
 import { ShowTypePhoneComponent } from 'app/type-phone/show-type-phone/show-type-phone.component';
 import { EditTypePhoneComponent } from 'app/type-phone/edit-type-phone/edit-type-phone.component';
+import { CreateNewsComponent } from 'app/news/create-news/create-news.component';
 @NgModule({
   imports: [
     FormsModule,
@@ -71,6 +73,8 @@ import { EditTypePhoneComponent } from 'app/type-phone/edit-type-phone/edit-type
     ShowTypePhoneComponent,
     EditTypePhoneComponent,
     NewsComponent,
+    ShowNewsComponent,
+    CreateNewsComponent,
     EditNewsComponent,
     BillComponent,
   ]
