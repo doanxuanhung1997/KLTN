@@ -12,4 +12,5 @@ export class BillService {
   getBill() {
     return this.http.get(this.api + 'getListBill')
   }
+
 }

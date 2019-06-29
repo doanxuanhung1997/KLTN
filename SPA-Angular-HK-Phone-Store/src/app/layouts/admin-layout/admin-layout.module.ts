@@ -38,6 +38,7 @@ import {
 import { ShowTypePhoneComponent } from 'app/type-phone/show-type-phone/show-type-phone.component';
 import { EditTypePhoneComponent } from 'app/type-phone/edit-type-phone/edit-type-phone.component';
 import { CreateNewsComponent } from 'app/news/create-news/create-news.component';
+import { ShowBillComponent } from 'app/bill/show-bill/show-bill.component';
 @NgModule({
   imports: [
     FormsModule,
@@ -77,6 +78,7 @@ import { CreateNewsComponent } from 'app/news/create-news/create-news.component'
     CreateNewsComponent,
     EditNewsComponent,
     BillComponent,
+    ShowBillComponent,
   ]
 })
 
