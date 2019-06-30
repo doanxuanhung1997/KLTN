@@ -48,6 +48,7 @@ Route::get('getNews','NewsController@index');
 Route::post('deleteNews','NewsController@destroy');
 
 //API Account
+Route::get('getRoles','UsersControllers@getRoles');
 Route::post('addAccount','UsersControllers@create');
 Route::post('deleteAccount','UsersControllers@destroy');
 Route::get('getListAccount','UsersControllers@index');
@@ -63,4 +64,8 @@ Route::post('edit_profile','UsersControllers@edit_profile');
 
 Route::get('getListBill','BillController@index');
 Route::post('addBill','BillController@create');
+Route::get('showBill/{id}','BillController@show');
+Route::post('cofirm','BillController@cofirm');
+Route::post('deletePhoneOrder','BillController@deletePhoneOrder');
+
 

@@ -9,4 +9,6 @@ class BillDetail extends Model
     protected $table='BillDetail';
     protected $primaryKey='bd_id';
     protected $guarded=[];
+    public $timestamps = false;
+    
 }

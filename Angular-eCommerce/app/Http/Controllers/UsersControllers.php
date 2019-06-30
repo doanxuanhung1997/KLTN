@@ -10,7 +10,13 @@ use DB;
 use Hash;
 class UsersControllers extends Controller
 {
-    
+    public function getRoles(){
+       
+        $data = Roles::all();
+
+        return $data;
+    }
+
     public function index(Request $request)
     {
        
