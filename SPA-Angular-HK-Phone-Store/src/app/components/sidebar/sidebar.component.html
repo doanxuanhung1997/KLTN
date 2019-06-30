@@ -5,20 +5,13 @@
 </div>
 <div class="sidebar-wrapper">
     <ul class="nav">
-        <!-- <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-            <a class="nav-link" [routerLink]="[menuItem.path]">
-                <i class="material-icons">{{menuItem.icon}}</i>
-                <i class="fas fa-users-cog"></i>
-                <p>{{menuItem.title}}</p>
-            </a>
-        </li> -->
         <li routerLinkActive="active" class="nav-item">
             <a class="nav-link" routerLink="/dashboard">
                 <i class="fas fa-home"></i>
                 <p>Dashboard</p>
             </a>
         </li>
-        <li routerLinkActive="active" class="nav-item">
+        <li *ngIf="isAdmin" routerLinkActive="active" class="nav-item">
             <a class="nav-link" routerLink="/account">
                 <i class="fas fa-users-cog"></i>
                 <p>Account</p>
