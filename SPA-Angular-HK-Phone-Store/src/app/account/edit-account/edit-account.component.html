@@ -12,54 +12,44 @@
                                 <div class="d-flex">
                                     <div class="mr-5">
                                         <label for="usr">Avatar:</label><br>
-                                        <input type="file" class="rounded bg-info" [(ngModel)]="image" name="image"
-                                            (change)="handleFileSelectImgAvarta($event)">
+                                        <input type="file" class="rounded bg-info" [(ngModel)]="image" name="image" (change)="handleFileSelectImgAvarta($event)">
                                     </div>
-                                    <img [src]="imgAvatar" width="33%" height="33%" class="img-responsive mt-2"
-                                        alt="Image">
+                                    <img [src]="imgAvatar" width="33%" height="33%" class="img-responsive mt-2" alt="Image">
                                 </div>
                                 <div class="form-group" style="margin-top: 13px">
                                     <label for="usr">Email:</label>
-                                    <input type="email" disabled class="form-control" [(ngModel)]="account.email"
-                                        name="email" placeholder="Enter email">
+                                    <input type="email" disabled class="form-control" [(ngModel)]="account.email" name="email" placeholder="Enter email">
                                 </div>
                                 <div class="form-group">
                                     <label for="usr">Full Name:</label>
-                                    <input type="text" class="form-control" [(ngModel)]="account.fullname"
-                                        name="fullname" placeholder="Enter full name">
+                                    <input type="text" class="form-control" [(ngModel)]="account.fullname" name="fullname" placeholder="Enter full name">
                                 </div>
 
                             </div>
                             <div class="p-2 w-50">
                                 <div class="form-group">
                                     <label for="usr">Address:</label>
-                                    <input type="text" class="form-control" [(ngModel)]="account.address" name="address"
-                                        placeholder="Enter address">
+                                    <input type="text" class="form-control" [(ngModel)]="account.address" name="address" placeholder="Enter address">
                                 </div>
                                 <div class="form-group">
                                     <label for="usr">Phone Number:</label>
-                                    <input type="number" class="form-control" [(ngModel)]="account.phone" name="phone"
-                                        placeholder="Enter phone number">
+                                    <input type="number" class="form-control" [(ngModel)]="account.phone" name="phone" placeholder="Enter phone number">
                                 </div>
                                 <div class="form-group">
                                     <label for="usr">Birthday:</label>
-                                    <input type="date" class="form-control" [(ngModel)]="account.birthday"
-                                        name="birthday" placeholder="Enter birthday">
+                                    <input type="date" class="form-control" [(ngModel)]="account.birthday" name="birthday" placeholder="Enter birthday">
                                 </div>
                                 <div class="form-group">
                                     <label for="usr">Salary:</label>
-                                    <input type="number" class="form-control" [(ngModel)]="account.salary" name="salary"
-                                        placeholder="Enter salary">
+                                    <input type="number" class="form-control" [(ngModel)]="account.salary" name="salary" placeholder="Enter salary">
                                 </div>
                                 <div class="form-group">
                                     <label for="usr">Password:</label>
-                                    <input type="password" class="form-control" [(ngModel)]="passNew" name="passNew"
-                                        placeholder="Enter Password">
+                                    <input type="password" class="form-control" [(ngModel)]="passNew" name="passNew" placeholder="Enter Password">
                                 </div>
                                 <div class="form-group">
                                     <label for="usr">Cofirm Password:</label>
-                                    <input type="password" class="form-control" [(ngModel)]="passCofirm"
-                                        name="passCofirm" placeholder="Cofirm Password">
+                                    <input type="password" class="form-control" [(ngModel)]="passCofirm" name="passCofirm" placeholder="Cofirm Password">
                                 </div>
                             </div>
                         </div>

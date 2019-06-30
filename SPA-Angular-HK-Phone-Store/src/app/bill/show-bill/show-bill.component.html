@@ -3,43 +3,50 @@
         <div class="row">
             <div class="card">
                 <div class="card-header card-header-info">
-                    <h4 class="card-title text-center">Info Bill #</h4>
+                    <h4 class="card-title text-center">Info Bill #{{id}}</h4>
                 </div>
                 <div class="w-100 my-3">
                     <div class="d-flex px-4">
-                        <div class="w-40">
-                            <h6>Image</h6>
+                        <div class="w-60">
+                            <h6>Status</h6>
                             <hr>
-                            <div class="d-flex justify-content-center form-group">
-                                <img [src]="imagePhone" class="img-responsive" width="50%" alt="Image ">
+                            <div class="d-flex form-group">
+                                <label for="usr "> Cofirm Bill:</label>
+                                <p class="text-info">{{isCofirmInfo}}</p>
+                                <button type="button" (click)="CofirmInfoBill()" class="btn btn-info ml-auto">Cofirm</button>
                             </div>
-                            <div class="d-flex justify-content-center form-group">
-
+                            <hr>
+                            <div class="d-flex form-group">
+                                <label for="usr "> Cofirm Shipped:</label>
+                                <p class="text-info">{{isCofirmShip}}</p>
+                                <button type="button" (click)="CofirmShipped()" class="btn btn-info ml-auto">Cofirm</button>
                             </div>
                             <hr>
                             <div class="card">
                                 <div class="card-header card-header-info">
-                                    <h4 class="card-title text-center">List Phone</h4>
+                                    <h4 class="card-title text-center">List Order</h4>
                                 </div>
                                 <div class="card-body table-responsive">
                                     <table class="table table-hover">
                                         <thead class="text-info">
-                                            <th>Id_phone</th>
+                                            <th>id_P</th>
+                                            <th>Phone</th>
+                                            <th>Company</th>
                                             <th>Color</th>
-                                            <th>Status</th>
+                                            <th>Price</th>
                                             <th></th>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let item of listPhone | paginate: { itemsPerPage: 5, currentPage: p }">
+                                            <tr *ngFor="let item of list_order | paginate: { itemsPerPage: 5, currentPage: p }">
                                                 <td>#p{{item.p_id}}</td>
+                                                <td>{{item.tp_name}}</td>
+                                                <td>{{item.pc_name}}</td>
                                                 <td>{{item.p_color}}</td>
+                                                <td>{{item.tp_price}}</td>
                                                 <td>
-                                                    {{item.p_status}}
-                                                </td>
-                                                <td>
-                                                    <button mat-raised-button (click)="deletePhone(item.p_id)" type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                                    <i class="material-icons">close</i>
-                                  </button>
+                                                    <button mat-raised-button (click)="deletePhoneOrder(item.p_id)" type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -50,66 +57,32 @@
                                 </div>
                             </div>
                             <hr>
-                            <form class="d-flex" #pForm="ngForm" (submit)="addPhone(pForm)">
-                                <button type="submit" class="btn btn-info">Add Phone</button>
-                                <input type="text" class=" ml-5 mt-2 form-control" [(ngModel)]="p_color" name="p_color" placeholder="Enter Phone Color">
-                            </form>
+                            <div class="d-flex flex-row-reverse form-group">
+                                <b class="total-bill ml-5"> Total Bill: {{info_bill.total_price}}</b>
+                            </div>
                         </div>
-                        <div class="w-60 ml-5">
-                            <h6>Phone Info</h6>
+                        <div class="w-40 ml-5">
+                            <h6>Customer Info</h6>
                             <hr>
                             <div class="d-flex form-group">
+                                <label for="usr "> FullName:</label>
+                                <p class="text-info">{{info_bill.fullname}}</p>
+                            </div>
+                            <div class="d-flex form-group">
+                                <label for="usr "> Address:</label>
+                                <p class="text-info">{{info_bill.address}}</p>
+                            </div>
+                            <div class="d-flex form-group">
                                 <label for="usr "> Phone:</label>
-                                <p class="text-info">{{tp.tp_name}}</p>
+                                <p class="text-info">{{info_bill.phone}}</p>
                             </div>
                             <div class="d-flex form-group">
-                                <label for="usr "> Company:</label>
-                                <p class="text-info">{{tp.pc_name}}</p>
+                                <label for="usr ">Email:</label>
+                                <p class="text-info">{{info_bill.gmail}}</p>
                             </div>
                             <div class="d-flex form-group">
-                                <label for="usr "> Describe:</label>
-                                <p class="text-info">{{tp.tp_describe}}</p>
-                            </div>
-                            <div class="d-flex form-group">
-                                <label for="usr ">Price:</label>
-                                <p class="text-info">{{tp.tp_price}}</p>
-                            </div>
-                            <div class="d-flex form-group">
-                                <label for="usr "> Discount:</label>
-                                <p class="text-info">{{tp.tp_discount}}</p>
-                            </div>
-                            <div class="d-flex form-group">
-                                <label for="usr "> Screen:</label>
-                                <p class="text-info">{{tp.tp_screen}}</p>
-                            </div>
-                            <div class="d-flex form-group">
-                                <label for="usr "> Operating System:</label>
-                                <p class="text-info">{{tp.tp_operating_system}}</p>
-                            </div>
-                            <div class="d-flex form-group">
-                                <label for="usr "> Rear Camera:</label>
-                                <p class="text-info">{{tp.tp_rear_camera}}</p>
-                            </div>
-                            <div class="d-flex form-group">
-                                <label for="usr "> Front Camera:</label>
-                                <p class="text-info">{{tp.tp_front_camera}}</p>
-                            </div>
-                            <div class="d-flex form-group">
-                                <label for="usr "> CPU:</label>
-                                <p class="text-info">{{tp.tp_CPU}}</p>
-                            </div>
-
-                            <div class="d-flex form-group">
-                                <label for="usr "> RAM:</label>
-                                <p class="text-info">{{tp.tp_RAM}}</p>
-                            </div>
-                            <div class="d-flex form-group">
-                                <label for="usr "> Memory:</label>
-                                <p class="text-info">{{tp.tp_memory}}</p>
-                            </div>
-                            <div class="d-flex form-group">
-                                <label for="usr "> Battery:</label>
-                                <p class="text-info">{{tp.tp_battery}}</p>
+                                <label for="usr "> Date Order:</label>
+                                <p class="text-info">{{info_bill.date_order}}</p>
                             </div>
                         </div>
                     </div>

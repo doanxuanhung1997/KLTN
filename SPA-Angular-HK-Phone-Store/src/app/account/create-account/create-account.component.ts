@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class CreateAccountComponent implements OnInit {
   account = new Account();
+  roles: any;
   Items: any;
   imgAvatar: string;
   // tslint:disable-next-line: max-line-length
@@ -30,12 +31,21 @@ export class CreateAccountComponent implements OnInit {
 
   checkToken() {
     if (this.Token.getToken()) {
+      this.getRoles();
     } else {
       this.router.navigate(['/login']);
     }
   }
-  add_account(form: NgForm) {
 
+  getRoles() {
+    this.account_service.getRoles().subscribe(data => {
+      this.roles = data;
+    }, err => {
+
+    })
+  }
+
+  add_account(form: NgForm) {
     this.account.email = form.value.email;
     this.account.id_role = form.value.id_role;
     this.account.password = form.value.password;

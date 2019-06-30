@@ -13,4 +13,15 @@ export class BillService {
     return this.http.get(this.api + 'getListBill')
   }
 
+  showBill(id) {
+    return this.http.get(this.api + 'showBill/' + id)
+  }
+
+  cofirm(data) {
+    return this.http.post(this.api + 'cofirm', data)
+  }
+
+  deletePhoneOrder(data) {
+    return this.http.post(this.api + 'deletePhoneOrder', data)
+  }
 }

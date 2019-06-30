@@ -27,4 +27,8 @@ export class AccountService {
   editAccount(data) {
     return this.http.post(this.api + 'editAccount', data)
   }
+
+  getRoles() {
+    return this.http.get(this.api + 'getRoles')
+  }
 }
