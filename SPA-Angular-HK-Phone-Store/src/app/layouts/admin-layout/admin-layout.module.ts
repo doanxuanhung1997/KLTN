@@ -8,7 +8,7 @@ import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { AccountComponent } from '../../account/account.component';
-
+import { HighchartsChartComponent } from 'highcharts-angular';
 import { CreateAccountComponent } from '../../account/create-account/create-account.component';
 import { ShowAccountComponent } from '../../account/show-account/show-account.component';
 import { EditAccountComponent } from '../../account/edit-account/edit-account.component';
@@ -21,6 +21,7 @@ import { EditNewsComponent } from '../../news/edit-news/edit-news.component';
 import { BillComponent } from 'app/bill/bill.component';
 import { EditUserProfileComponent } from 'app/user-profile/edit-user-profile/edit-user-profile.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PhoneChartComponent } from 'app/dashboard/phone-chart/phone-chart.component';
 
 import {
   MatButtonModule,
@@ -50,6 +51,7 @@ import { ShowBillComponent } from 'app/bill/show-bill/show-bill.component';
     NgxPaginationModule,
   ],
   declarations: [
+    HighchartsChartComponent,
     DashboardComponent,
     UserProfileComponent,
     EditUserProfileComponent,
@@ -69,6 +71,7 @@ import { ShowBillComponent } from 'app/bill/show-bill/show-bill.component';
     EditNewsComponent,
     BillComponent,
     ShowBillComponent,
+    PhoneChartComponent,
   ]
 })
 
