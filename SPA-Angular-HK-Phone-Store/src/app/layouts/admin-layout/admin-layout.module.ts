@@ -22,6 +22,9 @@ import { BillComponent } from 'app/bill/bill.component';
 import { EditUserProfileComponent } from 'app/user-profile/edit-user-profile/edit-user-profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PhoneChartComponent } from 'app/dashboard/phone-chart/phone-chart.component';
+import { PhoneAvailableChartComponent } from 'app/dashboard/phone-available-chart/phone-available-chart.component';
+import { PhoneSoldChartComponent } from 'app/dashboard/phone-sold-chart/phone-sold-chart.component';
+
 
 import {
   MatButtonModule,
@@ -35,6 +38,7 @@ import { ShowTypePhoneComponent } from 'app/type-phone/show-type-phone/show-type
 import { EditTypePhoneComponent } from 'app/type-phone/edit-type-phone/edit-type-phone.component';
 import { CreateNewsComponent } from 'app/news/create-news/create-news.component';
 import { ShowBillComponent } from 'app/bill/show-bill/show-bill.component';
+import { StatisticalComponent } from 'app/statistical/statistical.component';
 @NgModule({
   imports: [
     FormsModule,
@@ -72,6 +76,9 @@ import { ShowBillComponent } from 'app/bill/show-bill/show-bill.component';
     BillComponent,
     ShowBillComponent,
     PhoneChartComponent,
+    PhoneAvailableChartComponent,
+    PhoneSoldChartComponent,
+    StatisticalComponent
   ]
 })
 

@@ -19,7 +19,7 @@ import { EditTypePhoneComponent } from 'app/type-phone/edit-type-phone/edit-type
 import { ShowNewsComponent } from 'app/news/show-news/show-news.component';
 import { CreateNewsComponent } from 'app/news/create-news/create-news.component';
 import { ShowBillComponent } from 'app/bill/show-bill/show-bill.component';
-
+import { StatisticalComponent } from 'app/statistical/statistical.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -40,6 +40,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'news/create-news', component: CreateNewsComponent },
     { path: 'user-profile', component: UserProfileComponent },
     { path: 'user-profile/edit', component: EditUserProfileComponent },
-
+    { path: 'statistical', component: StatisticalComponent },
     { path: 'notifications', component: NotificationsComponent },
 ];
