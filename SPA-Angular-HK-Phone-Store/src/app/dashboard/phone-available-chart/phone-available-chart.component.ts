@@ -16,10 +16,10 @@ export class PhoneAvailableChartComponent {
       type: 'pie'
     },
     title: {
-      text: 'Browser market shares in January, 2018'
+      text: 'Number of phones available'
     },
     tooltip: {
-      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      pointFormat: '{series.name}: <b>{point.y:f}</b>'
     },
     plotOptions: {
       pie: {
@@ -35,35 +35,32 @@ export class PhoneAvailableChartComponent {
       }
     },
     series: [{
-      name: 'Brands',
+      name: 'Total',
       colorByPoint: true,
       data: [{
-        name: 'Chrome',
-        y: 61.41,
+        name: 'Apple',
+        y: 78
       }, {
-        name: 'Internet Explorer',
-        y: 11.84
+        name: 'SamSung',
+        y: 25
       }, {
-        name: 'Firefox',
-        y: 10.85
+        name: 'Nokia',
+        y: 20
       }, {
-        name: 'Edge',
-        y: 4.67
+        name: 'Oppo',
+        y: 15
       }, {
-        name: 'Safari',
-        y: 4.18
+        name: 'XIAOMI',
+        y: 10
       }, {
-        name: 'Sogou Explorer',
-        y: 1.64
+        name: 'Asus',
+        y: 18
       }, {
-        name: 'Opera',
-        y: 1.6
+        name: 'HTC',
+        y: 8
       }, {
-        name: 'QQ',
-        y: 1.2
-      }, {
-        name: 'Other',
-        y: 2.61
+        name: 'Sony',
+        y: 6
       }]
     }]
   };

@@ -56,10 +56,10 @@ export class PhoneChartComponent {
     },
     series: [{
       name: 'Còn hàng',
-      data: [5, 3, 4, 7, 2]
+      data: [78, 25, 15, 20, 18]
     }, {
       name: 'Đã bán',
-      data: [3, 4, 4, 2, 5]
+      data: [52, 40, 32, 14, 23]
     }]
   };
 }
