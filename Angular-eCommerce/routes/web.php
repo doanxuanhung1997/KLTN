@@ -62,10 +62,19 @@ Route::get('logout','UsersControllers@logout');
 Route::post('changepass/{id}','UsersControllers@changepass');
 Route::post('edit_profile','UsersControllers@edit_profile');
 
+//API Bill
 Route::get('getListBill','BillController@index');
 Route::post('addBill','BillController@create');
 Route::get('showBill/{id}','BillController@show');
 Route::post('cofirm','BillController@cofirm');
 Route::post('deletePhoneOrder','BillController@deletePhoneOrder');
+
+//API Dashboard
+Route::get('getDataDashboard','DashboardStatisticalController@getDataDashboard');
+Route::post('getTotalPhoneSold','DashboardStatisticalController@getTotalPhoneSold');
+Route::post('getTotalBill','DashboardStatisticalController@getTotalBill');
+Route::post('getRevenue','DashboardStatisticalController@getRevenue');
+Route::get('getTotalSalary','DashboardStatisticalController@getTotalSalary');
+
 
 

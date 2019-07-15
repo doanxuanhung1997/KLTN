@@ -9,6 +9,10 @@ export class DashboardService {
   constructor(private http: HttpClient) {
   }
 
+  getDataDashboard() {
+    return this.http.get(this.api + 'getDataDashboard')
+  }
+
   getPhoneChart() {
     return this.http.get(this.api + 'getPhoneChart')
   }

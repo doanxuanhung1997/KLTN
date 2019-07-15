@@ -46,10 +46,25 @@ class BillController extends Controller
     
     public function cofirm(Request $request)
     {
-        $b=Bill::find($request->b_id);
-
+        $b = Bill::find($request->b_id);
         $b->status=$request->status;
         $b->diliver=$request->diliver;
+          
+        $p_bill = BillDetail::where('b_id',$request->b_id)->select('p_id')->get();
+
+        if($request->diliver==1){
+            foreach ($p_bill as $key) {
+                $phone=Phone::find($key->p_id);
+                $phone->p_status=1;
+                $phone->save();
+            }
+        }else {
+             foreach ($p_bill as $key) {
+                $phone=Phone::find($key->p_id);
+                $phone->p_status=0;
+                $phone->save();
+            }
+        }
 
         $b->save();
            
