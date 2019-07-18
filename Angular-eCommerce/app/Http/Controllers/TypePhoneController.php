@@ -11,30 +11,75 @@ use DB;
 class TypePhoneController extends Controller
 {
     function getListSaleProducts(){
-    	$records=TypePhone::all();
-    	return response()->json($records);
+        $records=TypePhone::where('tp_discount', '<>', 0)->get();
+        return response()->json($records);
     }
     function getListNewProducts(){
-    	$records=TypePhone::all();
-    	return response()->json($records);
+        $records=TypePhone::all();
+        return response()->json($records);
     }
     function getListProducts(Request $request){
-        $id=$request->input('tp_id');
+        $id=$request->input('pc_id');
         $records=TypePhone::where('pc_id',$id)->get();
         return response()->json($records);
-            return 1;
+    }
+    function getListColorProducts(Request $request){
+        $id=$request->input('tp_id');
+        $records=DB::table('Phone')
+                ->Select('p_color',DB::raw('Count(p_color) AS c_count'))
+                ->where([['tp_id', '=', $id]])->groupBy('p_color')->get();
+        return response()->json($records);
+    }
+    function getListSearchByName(Request $request){
+        $name=$request->input('name');
+        $records=TypePhone::where('tp_name', 'LIKE', "%$name%")->get();
+        return response()->json($records);
+    }
+    function getListProductsSearch(Request $request){
+        $id=$request->input('pc_id');
+        $records=TypePhone::where('pc_id',$id)->get();
+        $idSearch=$request->input('idSear');
 
+        $price=0;$pricefrom=0;$priceto=0;
+        if($idSearch==0){
+            $records=TypePhone::where('pc_id',$id)->get();
+            return response()->json($records);
+        }
+        else if($idSearch==1){
+            $records = DB::table('TypePhone')
+                        ->where([
+                        ['pc_id', '=', $id],
+                        ['tp_price', '<', 2000000]
+                        ])->get();
+            return response()->json($records);
+        }else if($idSearch==2){
+            $pricefrom=2000000;$priceto=6000000;
+        }else if($idSearch==3){
+            $pricefrom=6000000;$priceto=10000000;
+        }else if($idSearch==4){
+            $pricefrom=10000000;$priceto=15000000;
+        }else if($idSearch==5){
+            $pricefrom=15000000;$priceto=20000000;
+        }else if($idSearch==6){
+            $records = DB::table('TypePhone')
+                        ->where([
+                        ['pc_id', '=', $id],
+                        ['tp_price', '>', 20000000]
+                        ])->get();
+            return response()->json($records);
+        }
+        $records = DB::table('TypePhone')
+                        ->where([
+                        ['pc_id', '=', $id],
+                        ['tp_price', '>', $pricefrom],
+                        ['tp_price', '<', $priceto]
+                        ])->get();
+        return response()->json($records);
     }
     function getDetailProduct(Request $request){
-            return 1;
-        
         $id=$request->input('tp_id');
         $record=TypePhone::find($id);
         return response()->json($record);
-
-    	$id=$request->input('id');
-    	$records=TypePhone::where('tp_id',$id)->get();
-    	return response()->json($records);
     }
     function getListPageNewPr(){
         $records=TypePhone::all();

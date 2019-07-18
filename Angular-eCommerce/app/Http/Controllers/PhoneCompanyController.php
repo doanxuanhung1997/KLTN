@@ -8,11 +8,18 @@ class PhoneCompanyController extends Controller
 {
 	//Client
     function getListCategories(){
-    	$records=PhoneCompany::all();
-    	// return response()->json($records);
-    	return $records->toJson();
-
+        $records=PhoneCompany::all();
+        return response()->json($records);
     }
+    function getDetailCategory(Request $request){
+        $id=$request->input('pc_id');
+        $record=PhoneCompany::find($id);
+        return response()->json($record);
+    }
+
+
+
+
     //Server Admin
 
     //get list

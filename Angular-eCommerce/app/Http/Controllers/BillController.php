@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bill;
-use App\Models\Phone;
-use App\Models\BillDetail;
-use Illuminate\Http\Request;
 use DB;
+use Illuminate\Http\Request;
+use App\Models\Bill;
+use App\Models\BillDetail;
+use App\Models\InforOrder;
+use App\Models\Phone;
 
 class BillController extends Controller
 {
@@ -24,7 +25,7 @@ class BillController extends Controller
     public function show($id)
     {
         $info_bill=DB::table('bill')
-            ->leftJoin('infororder', 'bill.b_id', '=', 'infororder.io_id')
+            ->leftJoin('infororder', 'bill.io_id', '=', 'infororder.io_id')
             ->where('bill.b_id',$id)
             ->get();
 
@@ -101,5 +102,46 @@ class BillController extends Controller
             'list_order'=>$list_order,
             'total_bill'=>$total_bill
         ],200);
+    }
+
+    //client
+    function addBill(Request $request){
+        // get id Customer new 
+        $idmax = InforOrder::whereRaw('io_id = (select max(io_id) from infororder)')->first();
+        $cart= $request->input('item');
+        $total=0;
+        foreach ($cart as $item) {   
+            $total+=$item['tp_price']*$item['tp_count'];
+        }
+        $ldate = date('Y-m-d');
+        // add new bill
+        $b=new Bill;
+        $b->io_id=$idmax->io_id;
+        $b->date_order=$ldate;
+        $b->date_finish=null;
+        $b->status=0;
+        $b->diliver=0;
+        $b->total_price=$total;
+        $b->save();
+        $idBill = Bill::whereRaw('b_id = (select max(b_id) from bill)')->first();
+        foreach ($cart as $item) {   
+            $color=$item['tp_color'];
+            $count=$item['tp_count'];
+            $typephone=$item['tp_id'];
+            $price=$item['tp_price'];
+            $data=Phone::where([
+                            ['tp_id','=',$typephone],
+                            ['p_color','=',$color]
+                        ])->inRandomOrder()->take($count)->get();
+            foreach ($data as $dt ) {
+                $billdetail=new BillDetail;
+                $billdetail->b_id=$idBill->b_id;
+                $billdetail->p_id=$dt->p_id;
+                $billdetail->count=1;
+                $billdetail->unit_price=$price;
+                $billdetail->save();
+            }
+        }
+        return 1;
     }
 }

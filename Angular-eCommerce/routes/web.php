@@ -17,12 +17,35 @@ Route::get('/', function () {
 
 // Angular Shop Phone Mobile
 Route::get('getListCategories','PhoneCompanyController@getListCategories');
+Route::get('getListNews','NewsController@getListNews');
+
 Route::get('getListSaleProducts','TypePhoneController@getListSaleProducts');
+
 Route::get('getListNewProducts','TypePhoneController@getListNewProducts');
+
 Route::post('getDetailProduct','TypePhoneController@getDetailProduct');
+
+Route::post('getDetailCategory','PhoneCompanyController@getDetailCategory');
+
 Route::post('getListProducts','TypePhoneController@getListProducts');
+
+Route::post('getListProductsSearch','TypePhoneController@getListProductsSearch');
+Route::post('getListSearchByName','TypePhoneController@getListSearchByName');
+Route::post('getListColorProducts','TypePhoneController@getListColorProducts');
+
+Route::post('getListReviewsProducts','ReviewsPhoneController@getListReviewsProducts');
+
 Route::get('getListPageSalePr','TypePhoneController@getListPageSalePr');
+
 Route::get('getListPageNewPr','TypePhoneController@getListPageNewPr');
+
+Route::post('addReviewPhone','ReviewsPhoneController@addReviewPhone');
+Route::post('addNewContact','ContactController@addNewContact');
+
+Route::post('addBill','BillController@addBill');
+Route::post('addCustomer','CustomerController@addCustomer');
+
+
 
 
 //Server Shop Phone Mobile
@@ -64,7 +87,6 @@ Route::post('edit_profile','UsersControllers@edit_profile');
 
 //API Bill
 Route::get('getListBill','BillController@index');
-Route::post('addBill','BillController@create');
 Route::get('showBill/{id}','BillController@show');
 Route::post('cofirm','BillController@cofirm');
 Route::post('deletePhoneOrder','BillController@deletePhoneOrder');

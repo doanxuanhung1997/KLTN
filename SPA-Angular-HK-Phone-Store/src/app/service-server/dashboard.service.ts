@@ -25,4 +25,19 @@ export class DashboardService {
     return this.http.get(this.api + 'getPhoneChart')
   }
 
+  getTotalPhoneSold(data) {
+    return this.http.post(this.api + 'getTotalPhoneSold', data)
+  }
+
+  getTotalBill(data) {
+    return this.http.post(this.api + 'getTotalBill', data)
+  }
+
+  getRevenue(data) {
+    return this.http.post(this.api + 'getRevenue', data)
+  }
+
+  getTotalSalary() {
+    return this.http.get(this.api + 'getTotalSalary')
+  }
 }

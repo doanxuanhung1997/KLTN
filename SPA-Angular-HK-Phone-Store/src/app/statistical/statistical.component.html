@@ -8,7 +8,7 @@
                 <div class="d-flex my-3 ml-5">
                     <div class="p-2 w-20 title_statistical">Tổng số điện thoái bán được :</div>
                     <div class="p-2">
-                        <select class="form-control" (change)="PhoneMonth($event.target.value)" [(ngModel)]="selectedValue1" name="total_phone">
+                        <select class="form-control" (change)="TotalPhoneMonth($event.target.value)" [(ngModel)]="selectedValue1" name="total_phone">
                         <option value="1">Tháng 1</option>
                         <option value="2">Tháng 2</option>
                         <option value="3">Tháng 3</option>
@@ -28,7 +28,7 @@
                 <div class="d-flex my-3 ml-5">
                     <div class="p-2 w-20 title_statistical">Tổng số hóa đơn đặt hàng :</div>
                     <div class="p-2">
-                        <select class="form-control" [(ngModel)]="selectedValue2" name="total_bill">
+                        <select class="form-control" (change)="TotalBillMonth($event.target.value)" [(ngModel)]="selectedValue2" name="total_bill">
                         <option value="1">Tháng 1</option>
                         <option value="2">Tháng 2</option>
                         <option value="3">Tháng 3</option>
@@ -43,12 +43,12 @@
                         <option value="12">Tháng 12</option>
                       </select>
                     </div>
-                    <div class="p-2">27 bills</div>
+                    <div class="p-2">{{totalBill}} bills</div>
                 </div>
                 <div class="d-flex my-3 ml-5">
                     <div class="p-2 w-20 title_statistical">Tổng doanh thu :</div>
                     <div class="p-2">
-                        <select class="form-control" [(ngModel)]="selectedValue3" name="total_revenue">
+                        <select class="form-control" (change)="TotalRevenueMonth($event.target.value)" [(ngModel)]="selectedValue3" name="total_revenue">
                         <option value="1">Tháng 1</option>
                         <option value="2">Tháng 2</option>
                         <option value="3">Tháng 3</option>
@@ -63,11 +63,11 @@
                         <option value="12">Tháng 12</option>
                       </select>
                     </div>
-                    <div class="p-2">523000000 đồng</div>
+                    <div class="p-2">{{totalRevenue}} đồng</div>
                 </div>
                 <div class="d-flex my-3 ml-5">
                     <div class="p-2">Tổng tiền lương nhân viên của cửa hàng :</div>
-                    <div class="p-2">142000000 đồng</div>
+                    <div class="p-2">{{totalSalary}} đồng</div>
                 </div>
             </div>
         </div>

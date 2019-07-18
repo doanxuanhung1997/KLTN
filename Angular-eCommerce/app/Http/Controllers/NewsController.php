@@ -75,4 +75,10 @@ class NewsController extends Controller
             'message'=>'Deleted news success !'  
         ],200);
     }
+
+    //client
+    function getListNews(){
+        $records=News::all();
+        return response()->json($records);
+    }
 }
