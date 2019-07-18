@@ -31,6 +31,19 @@ class DashboardStatisticalController extends Controller
         ],200);
     }
 
+    function getPhoneChart(){
+    	return 1;
+    }
+
+    function getPhoneAvailableChart(){
+    	return 1;
+    }
+
+    function getPhoneSoldChart(){
+    	return 1;
+    }
+
+
     function getTotalPhoneSold(Request $request){
     	$phone = DB::table('bill')->where('diliver',1)
     			->rightJoin('billdetail', 'bill.b_id', '=', 'billdetail.b_id')

@@ -18,11 +18,11 @@ export class DashboardService {
   }
 
   getPhoneAvailableChart() {
-    return this.http.get(this.api + 'getPhoneChart')
+    return this.http.get(this.api + 'getPhoneAvailableChart')
   }
 
   getPhoneSoldChart() {
-    return this.http.get(this.api + 'getPhoneChart')
+    return this.http.get(this.api + 'getPhoneSoldChart')
   }
 
   getTotalPhoneSold(data) {

@@ -93,6 +93,10 @@ Route::post('deletePhoneOrder','BillController@deletePhoneOrder');
 
 //API Dashboard
 Route::get('getDataDashboard','DashboardStatisticalController@getDataDashboard');
+Route::get('getPhoneChart','DashboardStatisticalController@getPhoneChart');
+Route::get('getPhoneAvailableChart','DashboardStatisticalController@getPhoneAvailableChart');
+Route::get('getPhoneSoldChart','DashboardStatisticalController@getPhoneSoldChart');
+
 Route::post('getTotalPhoneSold','DashboardStatisticalController@getTotalPhoneSold');
 Route::post('getTotalBill','DashboardStatisticalController@getTotalBill');
 Route::post('getRevenue','DashboardStatisticalController@getRevenue');
