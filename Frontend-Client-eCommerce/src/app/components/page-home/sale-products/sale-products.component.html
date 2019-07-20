@@ -1,0 +1,31 @@
+<div class="content_top">
+    <div class="heading" style="padding-bottom: 10px;padding-top: 10px; padding-left: 20px;">
+        <h2 style="color: red">Sale Products</h2>
+    </div>
+    <div class="see" style="padding-bottom: 10px;padding-top: 10px;padding-right: 20px;">
+        <!-- <p><a href="#" routerLink="/sale-products">See all Products</a></p> -->
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="section group">
+    <div class="grid_1_of_4 images_1_of_4" *ngFor="let stp of saletypephones | paginate: { itemsPerPage: 12, currentPage: pageActual }">
+        <a href="#" routerLink="/product/{{stp.tp_id}}">
+            <!-- <img src="../../../assets/images/{{stp.tp_img1}}" alt="" /> -->
+            <img src="{{stp.tp_img1}}" alt="" />
+        </a>
+        <h2>{{stp.tp_name}}</h2>
+        <p><img style="width: 150px;height: 50px;" src="../../../../assets/images/iconsale.jpg"><br><span class="strike">{{stp.tp_price}} </span>VND</p>
+        <div class="price-details">
+            <div class="price-number">
+                <p><span class="price">{{stp.tp_price-stp.tp_price*stp.tp_discount/100}}</span></p>
+            </div>
+            <div class="add-cart">
+                <h4><a [routerLink]="['/cart',{id:stp.tp_id}]">Add to Cart</a></h4>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div><br>
+<div style="width: 100%;text-align: center">
+    <pagination-controls (pageChange)="pageActual=$event"></pagination-controls>
+</div>

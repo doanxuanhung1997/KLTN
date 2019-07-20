@@ -1,0 +1,18 @@
+<div class="section group">
+    <div class="image group" *ngFor="let new of listsNew | paginate: { itemsPerPage: 1, currentPage: pageActual }">
+        <div class="grid images_3_of_1">
+            <!-- <img src="../../../assets/images/{{new.image}}" alt="" /> -->
+            <img src="{{new.image}}" alt="" />
+        </div>
+        <div class="grid news_desc">
+            <h3>{{new.title}} </h3>
+            <h4>{{new.date_created}}</h4>
+            <p>{{new.content}}</p>
+        </div>
+    </div>
+
+    <br><br>
+    <div style="width: 100%;text-align: center">
+        <pagination-controls (pageChange)="pageActual=$event"></pagination-controls>
+    </div>
+</div>

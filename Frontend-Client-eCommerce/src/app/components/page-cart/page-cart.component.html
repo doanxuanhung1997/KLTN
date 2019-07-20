@@ -1,0 +1,77 @@
+<div style="text-align: center;width: 100%">
+    <h1>Shopping Cart</h1>
+</div>
+<br>
+<br>
+<div class="shopping-cart">
+    <br>
+    <hr>
+    <div class="column-labels">
+        <label class="product-image">Image</label>
+        <label class="product-details">Product</label>
+        <label class="product-price">Price</label>
+        <label class="product-quantity">Quantity</label>
+        <label class="product-removal">Remove</label>
+        <label class="product-line-price">Total</label>
+    </div>
+    <div class="product" *ngFor="let item of ItemCarts">
+        <div class="product-image">
+            <!-- <img src="../../../assets/images/{{item.tp_img}}"> -->
+            <img src="{{item.tp_img}}">
+        </div>
+        <div class="product-details" style="text-align: center;">
+            <div class="product-title">{{item.tp_name}}</div>
+            <div>{{item.tp_color}}</div>
+        </div>
+        <div class="product-price">{{item.tp_price}}</div>
+        <div class="product-quantity">
+            <button (click)="disCount($event)" id="{{item.tp_id}}" class="{{item.tp_color}}">-</button>
+            <input [readonly]="true" type="text" value="{{item.tp_count}}">
+            <button (click)="addCount($event)" id="{{item.tp_id}}" class="{{item.tp_color}}">+</button>
+        </div>
+        <div class="product-removal">
+            <button class="remove-product" (click)="removeCart(item.tp_id)">
+        Remove
+      </button>
+        </div>
+        <div class="product-line-price">{{item.tp_price*item.tp_count}}</div>
+    </div>
+</div>
+
+<div class="totals">
+    <div class="totals-item totals-item-total">
+        <label>Grand Total</label>
+        <div class="totals-value" id="cart-total">{{total}}</div>
+    </div>
+</div>
+<br><br>
+<div style="width: 50%;margin-left: 25%;">
+    <hr>
+    <form class="forminfo" (submit)="AddBill($event)">
+        <div>
+            <span><input type="radio" value="0" name="sexcustomer"  [(ngModel)]="sexcustomer" >Male</span>&emsp;&emsp;
+            <span><input type="radio" value="1" name="sexcustomer"  [(ngModel)]="sexcustomer">Female</span>
+        </div>
+        <div>
+            <input class="enterinfo" type="text" value="" placeholder="Full Name" name="namecustomer" [(ngModel)]="namecustomer" required>
+        </div>
+        <div>
+            <input class="enterinfo" type="text" value="" placeholder="Number Phone" name="numberphone" [(ngModel)]="numberphone" required>
+        </div>
+        <div>
+            <input class="enterinfo" type="text" value="" placeholder="Email " name="numberphone" [(ngModel)]="email" required>
+        </div>
+        <div>
+            <textarea placeholder="Dia Chi Nhan Hang" value="" class="enterinfo" name="address" [(ngModel)]="address" required id="" cols="30" rows="5"></textarea>
+        </div>
+        <div style="margin-left: 25%">
+            <button type="submit" class="payoffline">Thanh toán khi nhận hàng<span>Xem hàng trước, không mua không sao</span></button>
+            <!-- <div [routerLink]="['/home']" routerLinkActive="router-link-active"  class="payonline" style="display: block;">
+              <div>
+                  Thanh toán online<span>Bằng thẻ ATM, Visa, Master</span>
+              </div>
+          </div> -->
+            <br><br>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  	<meta charset="utf-8">
+  	<title>AngularECommerce</title>
+   	<base href="/">
+
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="./assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+	<link href="./assets/css/slider.css" rel="stylesheet" type="text/css" media="all"/>
+	<script type="text/javascript" src="./assets/js/jquery-1.7.2.min.js"></script> 
+	<script type="text/javascript" src="./assets/js/move-top.js"></script>
+	<script type="text/javascript" src="./assets/js/easing.js"></script>
+	<script type="text/javascript" src="./assets/js/startstop-slider.js"></script>
+	<script src="./assets/js/easyResponsiveTabs.js" type="text/javascript"></script>
+	<link href="./assets/css/easy-responsive-tabs.css" rel="stylesheet" type="text/css" media="all"/>
+	<link rel="stylesheet" href="./assets/css/global.css">
+	<script src="./assets/js/slides.min.jquery.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+</head>
+<body>
+  	<app-root></app-root>
+	  <script type="text/javascript">
+	  	function changesrc(id){
+            var src=document.getElementById(id).src ;
+            document.getElementById("img1").src =src;
+        }
+		$(document).ready(function() {		
+			$().UItoTop({ easingType: 'easeOutQuart' });
+		});
+	</script>
+  	<a href="#" id="toTop"><span id="toTopHover"> </span></a>
+</body>
+</html>

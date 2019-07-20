@@ -1,0 +1,148 @@
+<div class="content_top">
+    <div class="back-links">
+        <h2 style="padding-left: 50px;padding-top: 10px;"><span>Detail Product</span></h2>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="section group">
+    <div class="cont-desc span_1_of_2">
+        <div class="product-details">
+            <div class="grid images_3_of_2">
+                <div id="container">
+                    <div>
+                        <!-- <img id="img1" src="../../../assets/images/{{tpphone.tp_img1}}" alt=" " /> -->
+                        <img id="img1" src="{{tpphone.tp_img1}}" alt=" " />
+
+                    </div>
+                    <div>
+                        <!-- <img class="img2" id="img" onclick="changesrc('img')" src="../../../assets/images/{{tpphone.tp_img1}}" alt=" " />
+                        <img class="img2" id="img2" onclick="changesrc('img2')" src="../../../assets/images/{{tpphone.tp_img2}}" alt=" " />
+                        <img class="img2" id="img3" onclick="changesrc('img3')" src="../../../assets/images/{{tpphone.tp_img3}}" alt=" " />
+                        <img class="img2" id="img4" onclick="changesrc('img4')" src="../../../assets/images/{{tpphone.tp_img4}}" alt=" " />
+                        <img class="img2" id="img5" onclick="changesrc('img5')" src="../../../assets/images/{{tpphone.tp_img5}}" alt=" " /> -->
+                        <img class="img2" id="img" onclick="changesrc('img')" src="{{tpphone.tp_img1}}" alt=" " />
+                        <img class="img2" id="img2" onclick="changesrc('img2')" src="{{tpphone.tp_img2}}" alt=" " />
+                        <img class="img2" id="img3" onclick="changesrc('img3')" src="{{tpphone.tp_img3}}" alt=" " />
+                        <img class="img2" id="img4" onclick="changesrc('img4')" src="{{tpphone.tp_img4}}" alt=" " />
+                        <img class="img2" id="img5" onclick="changesrc('img5')" src="{{tpphone.tp_img5}}" alt=" " />
+                    </div>
+                </div>
+            </div>
+            <div class="desc span_3_of_2">
+                <h2>{{tpphone.tp_name}}</h2>
+                <p>{{tpphone.tp_describe}}</p>
+                <img *ngIf="tpphone.tp_discount!=0" src="../../../assets/images/iconsale.jpg" style="width: 150px;height: 150px;" alt="">
+                <div class="price">
+                    <p>Price:<br><br><span *ngIf="tpphone.tp_discount!=0" style="color: black;text-decoration: line-through;font-size:35px;">{{tpphone.tp_price}}</span>
+                        <span style="margin-left: 20px;">{{tpphone.tp_price-tpphone.tp_price*tpphone.tp_discount/100}}</span></p>
+                </div>
+                <form (submit)="AddCart($event)">
+                    <div class="available">
+                        <p>Available Options :</p>
+                        <ul>
+                            <li>Color:
+                                <select name="option_color" [(ngModel)]="option_color" id="option_color">
+                    <option *ngFor="let cl of color;" value="{{cl.p_color}}" >{{cl.p_color}}</option>
+                  </select></li>
+                            <!-- <li>Quality:<select name="option_quality" id="option_quality" [(ngModel)]="option_quality" [value]='1'>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select></li> -->
+                        </ul>
+                    </div>
+                    <div class="share-desc">
+                        <div><span><input style="font-size: 1em; padding: 10px 15px;font-family: 'ambleregular';
+                background: #CD1F25; color: #FFF;text-decoration: none;border: none; cursor: pointer;
+                outline: 0;" type="submit" value="Add to Cart"></span></div>
+                        <!--<span><a routerLink="/cart/{{tpphone.tp_id}}>Add to Cart</a></span>"-->
+                        <div class="clear"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- div reviews -->
+        <div id="reviews">
+            <h2>Product Reviews</h2>
+            <hr>
+            <div *ngFor="let rv of reviews | paginate: { itemsPerPage: 5, currentPage: pageActual } ">
+                <div style="margin-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #D8D8D8;">
+                    <span style="color: #FE642E; font-weight: bold;">{{rv.fullname}}</span>
+                    <p style="color: #288ad6;">{{rv.gmail}}
+                        <p></p>
+                        <p>{{rv.content}}</p>
+                        <img style="width: 100px; height: 25px; margin-left: 15px;" src="../../../assets/images/{{rv.count_stars}}">
+                        <!-- <img style="width: 100px; height: 25px; margin-left: 15px;" src="{{rv.count_stars}}"> -->
+                        <br>
+                </div>
+            </div>
+        </div><br>
+        <div style="width: 100%;text-align: center">
+            <pagination-controls (pageChange)="pageActual=$event"></pagination-controls>
+        </div>
+    </div>
+    <div class="rightsidebar span_3_of_1">
+        <!-- <app-menu-categories></app-menu-categories> -->
+        <br>
+        <h3>THÔNG SỐ KỸ THUẬT</h3>
+        <hr>
+        <div class="tskt"><span class="tskt1">Màn hình:</span><span class="tskt2">LTPS LCD, 6.5", Full HD+</span></div>
+        <div class="tskt"><span class="tskt1">Hệ điều hành:</span><span class="tskt2">Android 9.0 (Pie)</span></div>
+        <div class="tskt"><span class="tskt1">Camera sau:</span><span class="tskt2">Chính 48 MP & Phụ 5 MP</span></div>
+        <div class="tskt"><span class="tskt1">Camera trước:</span><span class="tskt2">16 MP</span></div>
+        <div class="tskt"><span class="tskt1">CPU:</span><span class="tskt2">MediaTek Helio P70 8 nhân</span></div>
+        <div class="tskt"><span class="tskt1">RAM:</span><span class="tskt2">6 GB</span></div>
+        <div class="tskt"><span class="tskt1">Bộ nhớ trong:</span><span class="tskt2">128 GB</span></div>
+        <div class="tskt"><span class="tskt1">Dung lượng pin:</span><span class="tskt2">4000 mAh</span></div>
+
+        <div class="product_desc">
+            <div id="horizontalTab">
+                <ul class="resp-tabs-list">
+                    <br><br><br>
+                    <li>Your Reviews</li>
+                    <div class="clear"></div>
+                </ul><br>
+                <div class="resp-tabs-container">
+                    <div class="review">
+                        <div class="your-review">
+                            <h3>How Do You Rate This Product?</h3>
+                            <p>Write Your Own Review?</p>
+                            <form (submit)="AddReview($event)">
+                                <div>
+                                    <select name="count_stars" [(ngModel)]="count_stars" required>
+                            <option style="color: #FFBF00;font-size: 20px;" value="5sao.jpg">&hearts;&emsp;&hearts;&emsp;&hearts;&emsp;&hearts;&emsp;&hearts;</option>
+                            <option style="color: #FFBF00;font-size: 20px;" value="4sao.jpg">&hearts;&emsp;&hearts;&emsp;&hearts;&emsp;&hearts;</option>
+                            <option style="color: #FFBF00;font-size: 20px;" value="3sao.jpg">&hearts;&emsp;&hearts;&emsp;&hearts;</option>
+                            <option style="color: #FFBF00;font-size: 20px;" value="2sao.jpg">&hearts;&emsp;&hearts;</option>
+                            <option style="color: #FFBF00;font-size: 20px;" value="1sao.jpg">&hearts;&emsp;</option>
+                            <option style="color: rgb(17, 17, 16);font-size: 15px;" value="0sao.jpg">Rất tệ</option>
+                          </select>
+                                </div>
+                                <div>
+                                    <span><label>Your Name<span class="red">*</span></label>
+                                    </span>
+                                    <span><input name="fullname" [(ngModel)]="fullname" type="text" value="" required></span>
+                                </div>
+                                <div><span><label>Gmail Contact<span class="red">*</span></label>
+                                    </span>
+                                    <span><input name="gmail" [(ngModel)]="gmail" type="text" value="" required></span>
+                                </div>
+                                <div>
+                                    <span><label>Content<span class="red">*</span></label>
+                                    </span>
+                                    <span><textarea name="content" [(ngModel)]="content" required></textarea></span>
+                                </div>
+                                <div>
+                                    <span><input type="submit" value="SUBMIT REVIEW"></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -32,15 +32,80 @@ class DashboardStatisticalController extends Controller
     }
 
     function getPhoneChart(){
-    	return 1;
+    	$phonecompany=DB::table('phonecompany')->select('pc_name')->get();
+
+    	$namePC=[];
+    	$PhoneAvailable=[];
+		$PhoneSold=[];
+
+        foreach ($phonecompany as $key) {
+        	array_push($namePC,$key->pc_name);
+        	array_push($PhoneAvailable, 
+        		DB::table('phone')
+			        ->leftJoin('typephone', 'phone.tp_id', '=', 'typephone.tp_id')
+			        ->leftJoin('phonecompany', 'typephone.pc_id', '=', 'phonecompany.pc_id')
+			        ->select('p_id','p_color','p_status','phone.tp_id','tp_name','phonecompany.pc_id','pc_name')
+			        ->where('phone.p_status',0)
+			        ->where('pc_name',$key->pc_name)
+			        ->count()
+			    );
+
+        	array_push($PhoneSold, 
+        		DB::table('phone')
+			        ->leftJoin('typephone', 'phone.tp_id', '=', 'typephone.tp_id')
+			        ->leftJoin('phonecompany', 'typephone.pc_id', '=', 'phonecompany.pc_id')
+			        ->select('p_id','p_color','p_status','phone.tp_id','tp_name','phonecompany.pc_id','pc_name')
+			        ->where('phone.p_status',1)
+			        ->where('pc_name',$key->pc_name)
+			        ->count()
+			    );
+
+        }
+
+        return response()->json([
+            'namePC'=>$namePC,
+            'PhoneAvailable'=>$PhoneAvailable,
+            'PhoneSold'=>$PhoneSold
+        ],200);
     }
 
     function getPhoneAvailableChart(){
-    	return 1;
+
+		$phonecompany=DB::table('phonecompany')->select('pc_name')->get();
+		$PhoneAvailable=[];
+
+        foreach ($phonecompany as $key) {
+        	array_push($PhoneAvailable, (object)[
+		        'name' => $key->pc_name,
+		        'y' => DB::table('phone')
+					        ->leftJoin('typephone', 'phone.tp_id', '=', 'typephone.tp_id')
+					        ->leftJoin('phonecompany', 'typephone.pc_id', '=', 'phonecompany.pc_id')
+					        ->select('p_id','p_color','p_status','phone.tp_id','tp_name','phonecompany.pc_id','pc_name')
+					        ->where('phone.p_status',0)
+					        ->where('pc_name',$key->pc_name)
+					        ->count()
+							]);
+        }
+        return $PhoneAvailable;
     }
 
     function getPhoneSoldChart(){
-    	return 1;
+		$phonecompany=DB::table('phonecompany')->select('pc_name')->get();
+		$PhoneSold=[];
+
+        foreach ($phonecompany as $key) {
+        	array_push($PhoneSold, (object)[
+		        'name' => $key->pc_name,
+		        'y' => DB::table('phone')
+					        ->leftJoin('typephone', 'phone.tp_id', '=', 'typephone.tp_id')
+					        ->leftJoin('phonecompany', 'typephone.pc_id', '=', 'phonecompany.pc_id')
+					        ->select('p_id','p_color','p_status','phone.tp_id','tp_name','phonecompany.pc_id','pc_name')
+					        ->where('phone.p_status',1)
+					        ->where('pc_name',$key->pc_name)
+					        ->count()
+							]);
+        }
+        return $PhoneSold;
     }
 
 
