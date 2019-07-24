@@ -20,7 +20,7 @@
     <div class="cart">
         Chào mừng bạn đến với HK Store
         <a [routerLink]="['/cart']" routerLinkActive="router-link-active"><span style="color: red"> Giỏ hàng:</span></a>
-        <div id="dd" class="wrapper-dropdown-2"> {{countitem}} sản phẩm - {{total}} vnđ
+        <div id="dd" class="wrapper-dropdown-2"> {{countitem}} sản phẩm - {{ getFormatNumber(total)}} vnđ
             <ul class="dropdown">
                 <li>you have no items in your Shopping cart</li>
             </ul>
@@ -32,21 +32,21 @@
             this.initEvents();
         }
         DropDown.prototype = {
-            initEvents: function () {
+            initEvents: function() {
                 var obj = this;
 
-                obj.dd.on('click', function (event) {
+                obj.dd.on('click', function(event) {
                     $(this).toggleClass('active');
                     event.stopPropagation();
                 });
             }
         }
 
-        $(function () {
+        $(function() {
 
             var dd = new DropDown($('#dd'));
 
-            $(document).click(function () {
+            $(document).click(function() {
                 // all dropdowns
                 $('.wrapper-dropdown-2').removeClass('active');
             });
@@ -61,8 +61,7 @@
     </div>
     <div class="search_box">
         <form (submit)="AddSearch($event)">
-            <input type="text" placeholder="Search" maxlength="20" name="search" [(ngModel)]="search" required><input
-                type="submit" value="">
+            <input type="text" placeholder="Search" maxlength="20" name="search" [(ngModel)]="search" required><input type="submit" value="">
         </form>
     </div>
     <div class="clear"></div>
