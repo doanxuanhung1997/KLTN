@@ -27,6 +27,7 @@ import { FormSearchComponent } from './components/form-search/form-search.compon
 import { PageSearchComponent } from './components/page-search/page-search.component';
 import { CheckoutCompleteComponent } from './components/checkout-complete/checkout-complete.component';
 import { PageNewsComponent } from './components/page-news/page-news.component';
+import { PageCompareComponent } from './components/page-compare/page-compare.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { PageNewsComponent } from './components/page-news/page-news.component';
     FormSearchComponent,
     PageSearchComponent,
     CheckoutCompleteComponent,
-    PageNewsComponent
+    PageNewsComponent,
+    PageCompareComponent
   ],
   imports: [
     BrowserModule,

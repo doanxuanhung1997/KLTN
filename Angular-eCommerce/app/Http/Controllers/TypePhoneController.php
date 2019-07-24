@@ -34,9 +34,29 @@ class TypePhoneController extends Controller
                 ->groupBy('p_color')->get();
         return response()->json($records);
     }
+    function getListRelatedProducts(Request $request){
+        $id=$request->input('tp_id');
+        $typephone=TypePhone::where('tp_id',$id)->first();
+        $idPC=$typephone->pc_id;
+        $records=TypePhone::where([
+                            ['pc_id','=',$idPC]
+                        ])->inRandomOrder()->take(4)->get();
+        return response()->json($records);
+    }
     function getListSearchByName(Request $request){
         $name=$request->input('name');
-        $records=TypePhone::where('tp_name', 'LIKE', "%$name%")->get();
+        $records=DB::table('TypePhone')
+                                        ->where('tp_name', 'LIKE', "%$name%")
+                                        ->orWhere('tp_screen', 'LIKE', "%$name%")
+                                        ->orWhere('tp_operating_system', 'LIKE', "%$name%")
+                                        ->orWhere('tp_rear_camera', 'LIKE', "%$name%")
+                                        ->orWhere('tp_front_camera', 'LIKE', "%$name%")
+                                        ->orWhere('tp_CPU', 'LIKE', "%$name%")
+                                        ->orWhere('tp_RAM', 'LIKE', "%$name%")
+                                        ->orWhere('tp_memory', 'LIKE', "%$name%")
+                                        ->get();
+        //$records=TypePhone::where('tp_name', 'LIKE', "%$name%")->get();
+        /*$records=TypePhone::whereLike(['tp_name', 'tp_screen','tp_operating_system','tp_rear_camera','tp_front_camera','tp_CPU','tp_RAM','tp_memory'], $name)->get();*/
         return response()->json($records);
     }
     function getListProductsSearch(Request $request){

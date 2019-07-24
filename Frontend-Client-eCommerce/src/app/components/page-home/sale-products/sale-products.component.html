@@ -1,6 +1,6 @@
 <div class="content_top">
     <div class="heading" style="padding-bottom: 10px;padding-top: 10px; padding-left: 20px;">
-        <h2 style="color: red">Sale Products</h2>
+        <h2 style="color: red">Điện thoại khuyến mãi</h2>
     </div>
     <div class="see" style="padding-bottom: 10px;padding-top: 10px;padding-right: 20px;">
         <!-- <p><a href="#" routerLink="/sale-products">See all Products</a></p> -->
@@ -14,13 +14,14 @@
             <img src="{{stp.tp_img1}}" alt="" />
         </a>
         <h2>{{stp.tp_name}}</h2>
-        <p><img style="width: 150px;height: 50px;" src="../../../../assets/images/iconsale.jpg"><br><span class="strike">{{stp.tp_price}} </span>VND</p>
+        <p><img style="width: 150px;height: 50px;" src="../../../../assets/images/iconsale.jpg"><br><span
+                class="strike">{{getFormatNumber(stp.tp_price)}} </span>vnđ</p>
         <div class="price-details">
             <div class="price-number">
-                <p><span class="price">{{stp.tp_price-stp.tp_price*stp.tp_discount/100}}</span></p>
+                <p><span class="price">{{getFormatNumber(stp.tp_price-stp.tp_price*stp.tp_discount/100)}}</span> vnđ</p>
             </div>
             <div class="add-cart">
-                <h4><a [routerLink]="['/cart',{id:stp.tp_id}]">Add to Cart</a></h4>
+                <h4><a [routerLink]="['/cart',{id:stp.tp_id}]">Thêm vào Giỏ hàng</a></h4>
             </div>
             <div class="clear"></div>
         </div>

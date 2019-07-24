@@ -12,26 +12,27 @@ import { CheckoutCompleteComponent } from './components/checkout-complete/checko
 import { PageSearchComponent } from './components/page-search/page-search.component';
 import { PageNewsComponent } from './components/page-news/page-news.component';
 import { PageAboutComponent } from './components/page-about/page-about.component';
-
+import { PageCompareComponent } from './components/page-compare/page-compare.component';
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'home',pathMatch:'full'},
-  {path:'home',component:PageHomeComponent},
-  {path:'category/:id',component:PageCategoryComponent},
-  {path:'category/:id/:idSear',component:PageCategoryComponent},
-  {path:'product/:id',component:PageProductDetailComponent},
-  {path:'search/:name',component:PageSearchComponent},
-  {path:'sale-products',component:PageSaleProductsComponent},
-  {path:'new-products',component:PageNewProductsComponent},
-  {path:'checkout',component:PageCheckoutComponent},
-  {path:'about',component:PageAboutComponent},
-  {path:'contact',component:PageContactComponent},
-  {path:'news',component:PageNewsComponent},
-  {path:'complete',component:CheckoutCompleteComponent},
-  {path:'checkout',component:PageCheckoutComponent},
-  {path:'cart',component:PageCartComponent},
-  {path:'cart/:id/:option_color',component:PageCartComponent}
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: PageHomeComponent },
+  { path: 'category/:id', component: PageCategoryComponent },
+  { path: 'category/:id/:idSear', component: PageCategoryComponent },
+  { path: 'compare/:id1/:id2', component: PageCompareComponent },
+  { path: 'product/:id', component: PageProductDetailComponent },
+  { path: 'search/:name', component: PageSearchComponent },
+  { path: 'sale-products', component: PageSaleProductsComponent },
+  { path: 'new-products', component: PageNewProductsComponent },
+  { path: 'checkout', component: PageCheckoutComponent },
+  { path: 'about', component: PageAboutComponent },
+  { path: 'contact', component: PageContactComponent },
+  { path: 'news', component: PageNewsComponent },
+  { path: 'complete', component: CheckoutCompleteComponent },
+  { path: 'checkout', component: PageCheckoutComponent },
+  { path: 'cart', component: PageCartComponent },
+  { path: 'cart/:id/:option_color', component: PageCartComponent }
   //{path:'cart',component:CartComponent},
 ];
 

@@ -1,0 +1,79 @@
+<div class="content_top">
+    <div class="back-links">
+        <h2 style="padding-left: 50px;padding-top: 10px;"><span>So sánh chi tiết sản phẩm</span></h2>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="section group">
+    <div id="compare"><br>
+        <div class="product" style="margin-left: 9%;margin-right: 1%;"><br>
+            <div class="name">
+                <h3>{{tpphone1.tp_name}}</h3>
+            </div><br>
+            <div class="img-com">
+                <div>
+                    <img id="img1" src="{{tpphone1.tp_img1}}" alt=" " />
+                </div>
+                <div>
+                    <img class="img2" id="img" onclick="changesrc('img')" src="{{tpphone1.tp_img1}}" alt=" " />
+                    <img class="img2" id="img2" onclick="changesrc('img2')" src="{{tpphone1.tp_img2}}" alt=" " />
+                    <img class="img2" id="img3" onclick="changesrc('img3')" src="{{tpphone1.tp_img3}}" alt=" " />
+                    <img class="img2" id="img4" onclick="changesrc('img4')" src="{{tpphone1.tp_img4}}" alt=" " />
+                    <img class="img2" id="img5" onclick="changesrc('img5')" src="{{tpphone1.tp_img5}}" alt=" " />
+                </div>
+            </div><br>
+            <div class="price">
+                <h2>{{getFormatNumber(tpphone1.tp_price)}} VND</h2>
+            </div><br>
+            <div>
+                <h3>THÔNG SỐ KỸ THUẬT</h3>
+                <hr>
+                <div class="tskt"><span class="tskt1">Màn hình:</span><span class="tskt2">{{tpphone1.tp_screen}}</span></div>
+                <div class="tskt"><span class="tskt1">Hệ điều hành:</span><span class="tskt2">{{tpphone1.tp_operating_system}}</span></div>
+                <div class="tskt"><span class="tskt1">Camera sau:</span><span class="tskt2">{{tpphone1.tp_rear_camera}}</span></div>
+                <div class="tskt"><span class="tskt1">Camera trước:</span><span class="tskt2">{{tpphone1.tp_front_camera}}</span></div>
+                <div class="tskt"><span class="tskt1">CPU:</span><span class="tskt2">{{tpphone1.tp_CPU}}</span></div>
+                <div class="tskt"><span class="tskt1">RAM:</span><span class="tskt2">{{tpphone1.tp_RAM}} GB</span></div>
+                <div class="tskt"><span class="tskt1">Bộ nhớ trong:</span><span class="tskt2">{{tpphone1.tp_memory}} GB</span></div>
+                <div class="tskt"><span class="tskt1">Dung lượng pin:</span><span class="tskt2">{{tpphone1.tp_battery}} mAh</span></div>
+            </div>
+            <div style="margin-top:10px;">
+                <span><a routerLink="/product/{{tpphone1.tp_id}}"><input type="submit" value="Xem chi tiết"></a></span>
+            </div>
+        </div>
+        <div class="product" style="margin-left: 9%;margin-right: 1%;"><br>
+            <div class="name">
+                <h3>{{tpphone2.tp_name}}</h3>
+            </div><br>
+            <div class="img-com">
+                <div>
+                    <img id="img1" src="{{tpphone2.tp_img1}}" alt=" " />
+                </div>
+                <div>
+                    <img class="img2" id="img" onclick="changesrc('img')" src="{{tpphone2.tp_img1}}" alt=" " />
+                    <img class="img2" id="img2" onclick="changesrc('img2')" src="{{tpphone2.tp_img2}}" alt=" " />
+                    <img class="img2" id="img3" onclick="changesrc('img3')" src="{{tpphone2.tp_img3}}" alt=" " />
+                    <img class="img2" id="img4" onclick="changesrc('img4')" src="{{tpphone2.tp_img4}}" alt=" " />
+                    <img class="img2" id="img5" onclick="changesrc('img5')" src="{{tpphone2.tp_img5}}" alt=" " />
+                </div>
+            </div><br>
+            <div class="price">
+                <h2>{{getFormatNumber(tpphone2.tp_price)}} VND</h2>
+            </div><br>
+            <div>
+                <h3>THÔNG SỐ KỸ THUẬT</h3>
+                <hr>
+                <div class="tskt"><span class="tskt1">Màn hình:</span><span class="tskt2">{{tpphone2.tp_screen}}</span></div>
+                <div class="tskt"><span class="tskt1">Hệ điều hành:</span><span class="tskt2">{{tpphone2.tp_operating_system}}</span></div>
+                <div class="tskt"><span class="tskt1">Camera sau:</span><span class="tskt2">{{tpphone2.tp_rear_camera}}</span></div>
+                <div class="tskt"><span class="tskt1">Camera trước:</span><span class="tskt2">{{tpphone2.tp_front_camera}}</span></div>
+                <div class="tskt"><span class="tskt1">CPU:</span><span class="tskt2">{{tpphone2.tp_CPU}}</span></div>
+                <div class="tskt"><span class="tskt1">RAM:</span><span class="tskt2">{{tpphone2.tp_RAM}} GB</span></div>
+                <div class="tskt"><span class="tskt1">Bộ nhớ trong:</span><span class="tskt2">{{tpphone2.tp_memory}} GB</span></div>
+                <div class="tskt"><span class="tskt1">Dung lượng pin:</span><span class="tskt2">{{tpphone2.tp_battery}} mAh</span></div>
+            </div>
+            <div style="margin-top:10px;">
+                <span><a routerLink="/product/{{tpphone2.tp_id}}"  ><input type="submit" value="Xem chi tiết"></a></span>
+            </div>
+        </div>
+    </div>

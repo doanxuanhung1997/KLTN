@@ -28,6 +28,7 @@ Route::post('getDetailProduct','TypePhoneController@getDetailProduct');
 Route::post('getDetailCategory','PhoneCompanyController@getDetailCategory');
 
 Route::post('getListProducts','TypePhoneController@getListProducts');
+Route::post('getListRelatedProducts','TypePhoneController@getListRelatedProducts');
 
 Route::post('getListProductsSearch','TypePhoneController@getListProductsSearch');
 Route::post('getListSearchByName','TypePhoneController@getListSearchByName');

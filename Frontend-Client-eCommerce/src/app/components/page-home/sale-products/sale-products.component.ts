@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TypePhoneService} from '../../../service/type-phone.service';
+import { TypePhoneService } from '../../../service/type-phone.service';
 import { TypePhone } from 'src/app/Models/TypePhone';
 
 @Component({
@@ -8,17 +8,21 @@ import { TypePhone } from 'src/app/Models/TypePhone';
   styleUrls: ['./sale-products.component.scss']
 })
 export class SaleProductsComponent implements OnInit {
-  saletypephones:TypePhone[];
-  pageActual:number=1;
-  constructor(private TPService:TypePhoneService) { }
+  saletypephones: TypePhone[];
+  pageActual: number = 1;
+  constructor(private TPService: TypePhoneService) { }
 
   ngOnInit() {
     this.getListSaleProducts();
   }
-  getListSaleProducts(){
-    this.TPService.getListSaleProducts().subscribe((all)=>{
-      this.saletypephones=all;
-     //console.log(this.saletypephones);
+  getListSaleProducts() {
+    this.TPService.getListSaleProducts().subscribe((all) => {
+      this.saletypephones = all;
+      //console.log(this.saletypephones);
     });
+  }
+
+  getFormatNumber(number) {
+    return (Math.max(0, number).toFixed(0).replace(/(?=(?:\d{3})+$)(?!^)/g, '.'))
   }
 }

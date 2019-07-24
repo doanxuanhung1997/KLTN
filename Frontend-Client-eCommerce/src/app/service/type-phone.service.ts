@@ -62,6 +62,12 @@ export class TypePhoneService {
   getListPageSalePr(): Observable<TypePhone[]> {
     return this.http.get<TypePhone[]>(this.server + 'getListPageSalePr');
   }
+  getListRelatedProducts(id): Observable<TypePhone[]> {
+    const newtp = {
+      tp_id: id
+    };
+    return this.http.post<TypePhone[]>(this.server + 'getListRelatedProducts', newtp);
+  }
   getListPageNewPr(): Observable<TypePhone[]> {
     return this.http.get<TypePhone[]>(this.server + 'getListPageNewPr');
   }
