@@ -27,7 +27,11 @@ class TypePhoneController extends Controller
         $id=$request->input('tp_id');
         $records=DB::table('Phone')
                 ->Select('p_color',DB::raw('Count(p_color) AS c_count'))
-                ->where([['tp_id', '=', $id]])->groupBy('p_color')->get();
+                ->where([
+                    ['tp_id', '=', $id],
+                    ['p_status', '=', 0]
+                ])
+                ->groupBy('p_color')->get();
         return response()->json($records);
     }
     function getListSearchByName(Request $request){

@@ -8,7 +8,7 @@
     <div class="clear"></div>
 </div>
 <div class="section group">
-    <div class="grid_1_of_4 images_1_of_4" *ngFor="let stp of saletypephones | paginate: { itemsPerPage: 12, currentPage: pageActual }">
+    <div class="grid_1_of_4 images_1_of_4" *ngFor="let stp of saletypephones | paginate: { itemsPerPage: 8, currentPage: pageActual }">
         <a href="#" routerLink="/product/{{stp.tp_id}}">
             <!-- <img src="../../../assets/images/{{stp.tp_img1}}" alt="" /> -->
             <img src="{{stp.tp_img1}}" alt="" />
