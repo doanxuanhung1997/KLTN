@@ -194,4 +194,8 @@ export class PageCartComponent implements OnInit {
       this.router.navigateByUrl('complete');
     }
   }
+
+  getFormatNumber(number) {
+    return (Math.max(0, number).toFixed(0).replace(/(?=(?:\d{3})+$)(?!^)/g, '.'))
+  }
 }

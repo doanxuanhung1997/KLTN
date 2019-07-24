@@ -1,50 +1,53 @@
 <div class="section group">
-    <div class="col span_2_of_3">
-      <div class="contact-form">
-        <h2>Contact Us</h2>
-          <form *ngIf="stt==0" (submit)="AddContact($event)">
-            <div>
-              <span><label>Name (*)</label></span>
-              <span><input type="text" class="textbox" name="name" [(ngModel)]="name" required></span>
-            </div>
-            <div>
-              <span><label>E-mail (*)</label></span>
-              <span><input type="text" class="textbox" name="email" [(ngModel)]="email" required></span>
-            </div>
-            <div>
-               <span><label>Number Phone (*) </label></span>
-              <span><input type="text" class="textbox" name="phone" [(ngModel)]="phone" required></span>
-            </div>
-            <div>
-              <span><label>Content (*)</label></span>
-              <span><textarea name="content" [(ngModel)]="content" required> </textarea></span>
-            </div><br>
-            <p style="color: red;">Note: (*) khong duoc de trong</p>
-           <div>
-               <span><input type="submit" value="Submit"  class="myButton"></span>
-          </div>
-          </form>
-          <form *ngIf="stt!=0">
-            <img src="../../../assets/images/thanh.jpg">
-          </form>
+  <div class="col span_2_of_3">
+    <div class="contact-form">
+      <h2>Liên hệ chúng tôi</h2>
+      <form *ngIf="stt==0" (submit)="AddContact($event)">
+        <div>
+          <span><label>Họ tên (*)</label></span>
+          <span><input type="text" class="textbox" name="name" [(ngModel)]="name" required></span>
+        </div>
+        <div>
+          <span><label>Email (*)</label></span>
+          <span><input type="text" class="textbox" name="email" [(ngModel)]="email" required></span>
+        </div>
+        <div>
+          <span><label>Số điện thoại (*) </label></span>
+          <span><input type="text" class="textbox" name="phone" [(ngModel)]="phone" required></span>
+        </div>
+        <div>
+          <span><label>Nội dung (*)</label></span>
+          <span><textarea name="content" [(ngModel)]="content" required> </textarea></span>
+        </div><br>
+        <p style="color: red;">Lưu ý: (*) Không được để trống</p>
+        <div>
+          <span><input type="submit" value="Submit" class="myButton"></span>
+        </div>
+      </form>
+      <form *ngIf="stt!=0">
+        <img src="../../../assets/images/thanh.jpg">
+      </form>
+    </div>
+  </div>
+  <div class="col span_1_of_3">
+    <div class="contact_info">
+      <h3>Địa chỉ của chúng tôi</h3>
+      <div class="map">
+        <iframe width="100%" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+          src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe><br><small><a
+            href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265"
+            style="color:#666;text-align:left;font-size:12px">Xem bản đồ lớn hơn</a></small>
       </div>
-      </div>
-    <div class="col span_1_of_3">
-      <div class="contact_info">
-           <h3>Find Us Here</h3>
-              <div class="map">
-                   <iframe width="100%" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px">View Larger Map</a></small>
-            </div>
-          </div>
-        <div class="company_address">
-           <h3>Company Information </h3>
-              <p>HCM City UTE</p>
-               <p>1 Võ Văn Ngân,Thủ Đức, Hồ Chí Minh</p>
-               <p>Viet Nam</p>
-           <p>Phone: 034 433 7163</p>
-           <p>Fax: (000) 033 5299 937</p>
-          <p>Email: <span><a href="mailto:@example.com">info@mycompany.com</a></span></p>
-           <p>Follow on: <span>Facebook</span>, <span>Twitter</span></p>
-       </div>
-     </div>
-    </div>		
+    </div>
+    <div class="company_address">
+      <h3>Thông tin Công ty</h3>
+      <p>HCM City UTE</p>
+      <p>1 Võ Văn Ngân,Thủ Đức, Hồ Chí Minh</p>
+      <p>Việt Nam</p>
+      <p>Số điện thoại: 034 433 7163</p>
+      <p>Fax: (000) 033 5299 937</p>
+      <p>Email: <span><a href="mailto:@example.com">info@mycompany.com</a></span></p>
+      <p>Theo dõi trên: <span>Facebook</span>, <span>Twitter</span></p>
+    </div>
+  </div>
+</div>

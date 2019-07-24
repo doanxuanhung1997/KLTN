@@ -7,13 +7,13 @@
     </div>
     <div style="width: 100%;text-align: center;padding-top: 15px; ">
         <label style="margin-right: 30px;color:red">Chọn mức giá :</label>
-        <a routerLink="/category/{{idCate}}/0"><input class="btnsearch" type="button" value="ALL"></a>
-        <a routerLink="/category/{{idCate}}/1"><input class="btnsearch" type="button" value="Dưới 2TR"></a>
-        <a routerLink="/category/{{idCate}}/2"><input class="btnsearch" type="button" value="2TR-6TR"></a>
-        <a routerLink="/category/{{idCate}}/3"><input class="btnsearch" type="button" value="6TR-10TR"></a>
-        <a routerLink="/category/{{idCate}}/4"><input class="btnsearch" type="button" value="10TR-15TR"></a>
-        <a routerLink="/category/{{idCate}}/5"><input class="btnsearch" type="button" value="15TR-20TR"></a>
-        <a routerLink="/category/{{idCate}}/6"><input class="btnsearch" type="button" value="Trên 20TR"></a>
+        <a routerLink="/category/{{idCate}}/0"><input class="btnsearch" type="button" value="Tất cả"></a>
+        <a routerLink="/category/{{idCate}}/1"><input class="btnsearch" type="button" value="Dưới 2Tr"></a>
+        <a routerLink="/category/{{idCate}}/2"><input class="btnsearch" type="button" value="2Tr-6Tr"></a>
+        <a routerLink="/category/{{idCate}}/3"><input class="btnsearch" type="button" value="6Tr-10Tr"></a>
+        <a routerLink="/category/{{idCate}}/4"><input class="btnsearch" type="button" value="10Tr-15Tr"></a>
+        <a routerLink="/category/{{idCate}}/5"><input class="btnsearch" type="button" value="15Tr-20Tr"></a>
+        <a routerLink="/category/{{idCate}}/6"><input class="btnsearch" type="button" value="Trên 20Tr"></a>
     </div>
     <br>
 
@@ -21,7 +21,8 @@
 </div>
 <hr>
 <div class="section group">
-    <div class="grid_1_of_4 images_1_of_4" *ngFor="let tp of typephones  | paginate: { itemsPerPage: 12, currentPage: pageActual }">
+    <div class="grid_1_of_4 images_1_of_4"
+        *ngFor="let tp of typephones  | paginate: { itemsPerPage: 12, currentPage: pageActual }">
         <a href="#" routerLink="/product/{{tp.tp_id}}">
             <!-- <img src="../../../assets/images/{{tp.tp_img1}}" alt="" /> -->
             <img src="{{tp.tp_img1}}" alt="" />
@@ -31,10 +32,10 @@
       <img *ngIf="tp.tp_discount==0" src="../../../assets/images/blank.jpg" style="width: 50px;height: 50px;" alt=""> -->
         <div class="price-details">
             <div class="price-number">
-                <p><span class="rupees">${{tp.tp_price-tp.tp_price*tp.tp_discount/100}}</span></p>
+                <p><span class="rupees">{{getFormatNumber(tp.tp_price-tp.tp_price*tp.tp_discount/100)}} vnđ</span></p>
             </div>
             <div class="add-cart">
-                <h4><a routerLink="/product/{{tp.tp_id}}">Add to Cart</a></h4>
+                <h4><a routerLink="/product/{{tp.tp_id}}">Thêm vào Giỏ hàng</a></h4>
             </div>
             <div class="clear"></div>
         </div>
