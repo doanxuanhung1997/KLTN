@@ -26,7 +26,7 @@ export class PhoneSoldChartComponent implements OnInit {
           type: 'pie'
         },
         title: {
-          text: 'Number of phones sold'
+          text: 'Tỉ lệ máy đã bán'
         },
         tooltip: {
           pointFormat: '{series.name}: <b>{point.y:f}</b>'

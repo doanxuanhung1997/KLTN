@@ -34,6 +34,7 @@ export class ListProductComponent implements OnInit {
     this.pc.pc_logo = this.base64textString;
     this.pc_service.addPhoneCompany(this.pc).subscribe(() => {
       this.base64textString = this.imageDefault;
+      alert('Tạo thành công')
       this.getlist();
     }, err => {
       console.log('Error:' + err);

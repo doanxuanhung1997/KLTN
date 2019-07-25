@@ -21,7 +21,7 @@ export class PhoneChartComponent implements OnInit {
           type: 'column'
         },
         title: {
-          text: 'Phone warehouse Chart'
+          text: 'Tổng số máy của cửa hàng'
         },
         xAxis: {
           categories: data['namePC']

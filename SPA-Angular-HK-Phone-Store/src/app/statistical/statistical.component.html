@@ -3,7 +3,7 @@
         <div class="row">
             <div class="card">
                 <div class="card-header card-header-info">
-                    <h4 class="card-title text-center">Statistical</h4>
+                    <h4 class="card-title text-center">Thống Kê</h4>
                 </div>
                 <div class="d-flex my-3 ml-5">
                     <div class="p-2 w-20 title_statistical">Tổng số điện thoái bán được :</div>
@@ -23,7 +23,7 @@
                         <option value="12">Tháng 12</option>
                       </select>
                     </div>
-                    <div class="p-2">{{totalPhone}} phone</div>
+                    <div class="p-2">{{totalPhone}} máy</div>
                 </div>
                 <div class="d-flex my-3 ml-5">
                     <div class="p-2 w-20 title_statistical">Tổng số hóa đơn đặt hàng :</div>
@@ -43,7 +43,7 @@
                         <option value="12">Tháng 12</option>
                       </select>
                     </div>
-                    <div class="p-2">{{totalBill}} bills</div>
+                    <div class="p-2">{{totalBill}} hóa đơn</div>
                 </div>
                 <div class="d-flex my-3 ml-5">
                     <div class="p-2 w-20 title_statistical">Tổng doanh thu :</div>
@@ -63,11 +63,11 @@
                         <option value="12">Tháng 12</option>
                       </select>
                     </div>
-                    <div class="p-2">{{totalRevenue}} vnđ</div>
+                    <div class="p-2">{{getFormatNumber(totalRevenue)}} vnđ</div>
                 </div>
                 <div class="d-flex my-3 ml-5">
                     <div class="p-2">Tổng tiền lương nhân viên của cửa hàng :</div>
-                    <div class="p-2">{{totalSalary}} vnđ</div>
+                    <div class="p-2">{{getFormatNumber(totalSalary)}} vnđ</div>
                 </div>
             </div>
         </div>

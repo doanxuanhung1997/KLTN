@@ -54,6 +54,7 @@ export class EditAccountComponent implements OnInit {
     this.account.image = this.imgAvatar;
     console.log(this.account)
     this.Accounts.editAccount(this.account).subscribe(data => {
+      alert('Thay đổi đã được lưu thành công')
       this.reset()
     }, err => {
 

@@ -77,7 +77,7 @@ export class CreateTypePhoneComponent implements OnInit {
       this.img3 = this.imageDefault;
       this.img4 = this.imageDefault;
       this.img5 = this.imageDefault;
-
+      alert('Tạo thành công')
       this.router.navigate(['/type-phone']);
     }, err => {
       console.log('Error:' + err);

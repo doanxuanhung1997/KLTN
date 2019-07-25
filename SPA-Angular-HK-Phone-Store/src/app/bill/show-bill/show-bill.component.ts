@@ -43,15 +43,15 @@ export class ShowBillComponent implements OnInit {
 
   Cofirm(x, y) {
     if (x === 0) {
-      this.isCofirmInfo = 'Unconfimred';
+      this.isCofirmInfo = 'Chưa xác nhận';
     } else {
-      this.isCofirmInfo = 'Confirmed';
+      this.isCofirmInfo = 'Đã xác nhận';
     }
 
     if (y === 0) {
-      this.isCofirmShip = 'Unconfimred';
+      this.isCofirmShip = 'Chưa giao hàng';
     } else {
-      this.isCofirmShip = 'Confirmed';
+      this.isCofirmShip = 'Đã giao hàng';
     }
   }
 
@@ -91,5 +91,9 @@ export class ShowBillComponent implements OnInit {
     }, err => {
 
     })
+  }
+
+  getFormatNumber(number) {
+    return (Math.max(0, number).toFixed(0).replace(/(?=(?:\d{3})+$)(?!^)/g, '.'))
   }
 }

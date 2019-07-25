@@ -44,6 +44,7 @@ export class EditUserProfileComponent implements OnInit {
     }
     this.User.edit_profile(this.userToken).subscribe(data => {
       this.Token.setUser(data['user'])
+      alert('Thay đổi đã được lưu thành công')
       this.reset()
     }, err => {
 

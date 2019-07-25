@@ -46,6 +46,52 @@ export class CreateAccountComponent implements OnInit {
   }
 
   add_account(form: NgForm) {
+    if (form.value.password !== form.value.re_password) {
+      return alert('Xác nhận mật khẩu không đúng')
+    }
+
+    if (form.value.email === undefined || form.value.email.length === 0) {
+      return alert('Email không được để trống')
+    }
+    else {
+      if (form.value.email.length > 50 || form.value.email.length < 10) {
+        return alert('Độ dài email trong khoảng 10-50 ký tự')
+      }
+    }
+
+    if (form.value.password === undefined || form.value.password.length === 0) {
+      return alert('Mật khẩu không được để trống')
+    } else {
+      if (form.value.password.length > 32 || form.value.password.length < 6) {
+        return alert('Độ dài mật khẩu trong khoảng 6-32 ký tự')
+      }
+    }
+
+    if (form.value.address === undefined || form.value.address.length === 0) {
+      return alert('Địa chỉ không được để trống')
+    }
+
+    if (form.value.fullname === undefined || form.value.fullname.length === 0) {
+      return alert('Họ tên không được để trống')
+    } else {
+      if (form.value.fullname.length > 50 || form.value.fullname.length < 6) {
+        return alert('Độ dài họ tên trong khoảng 6-50 ký tự')
+      }
+    }
+
+    if (form.value.salary === undefined || form.value.salary.length === 0) {
+      return alert('Lương không được để trống')
+    }
+
+    if (form.value.birthday === undefined || form.value.email.birthday === 0) {
+      return alert('Hãy chon ngày sinh')
+    }
+    if (form.value.id_role === undefined || form.value.id_role.length === 0) {
+      return alert('Hãy chon nghiệp vụ')
+    }
+    if (form.value.phone === undefined || form.value.phone.length === 0) {
+      return alert('Số điện thoại không được để trống')
+    }
     this.account.email = form.value.email;
     this.account.id_role = form.value.id_role;
     this.account.password = form.value.password;
@@ -54,11 +100,12 @@ export class CreateAccountComponent implements OnInit {
     this.account.phone = form.value.phone;
     this.account.address = form.value.address;
     this.account.salary = form.value.salary;
+
     this.account.image = this.imgAvatar;
 
     this.account_service.addAccount(this.account).subscribe(data => {
       this.imgAvatar = this.imageDefault;
-      console.log(data['message']);
+      alert('Tạo thành công')
     }, err => {
       console.log('Error:' + err);
     })

@@ -85,4 +85,8 @@ export class ShowTypePhoneComponent implements OnInit {
   showImage(event) {
     this.imagePhone = event.target.currentSrc;
   }
+
+  getFormatNumber(number) {
+    return (Math.max(0, number).toFixed(0).replace(/(?=(?:\d{3})+$)(?!^)/g, '.'))
+  }
 }

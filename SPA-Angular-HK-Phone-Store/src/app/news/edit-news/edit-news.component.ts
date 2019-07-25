@@ -41,6 +41,7 @@ export class EditNewsComponent implements OnInit {
     this.news.content = from.value.content;
 
     this.new_service.updateNews(this.news).subscribe(data => {
+      alert('Thay đổi đã được lưu thành công')
       from.reset();
       this.router.navigate(['/news/show-news', this.news.id_news]);
     }, err => {

@@ -37,6 +37,10 @@ export class StatisticalComponent implements OnInit {
     })
   }
 
+  getFormatNumber(number) {
+    return (Math.max(0, number).toFixed(0).replace(/(?=(?:\d{3})+$)(?!^)/g, '.'))
+  }
+
   TotalBillMonth(e) {
     let data_Month = {
       month: e

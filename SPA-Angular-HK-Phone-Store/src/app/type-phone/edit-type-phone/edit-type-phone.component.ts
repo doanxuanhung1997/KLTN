@@ -89,6 +89,7 @@ export class EditTypePhoneComponent implements OnInit {
     this.tp.tp_img5 = this.img5;
 
     this.TypePhoneServive.editTypePhone(this.tp).subscribe(data => {
+      alert('Thay đổi đã được lưu thành công')
       form.reset();
       this.getTypePhone();
     }, err => {

@@ -35,6 +35,7 @@ export class CreateNewsComponent implements OnInit {
     this.news.image = this.imgAvatar;
     this.NewService.addNews(this.news).subscribe(data => {
       form.reset();
+      alert('Tạo thành công')
       this.router.navigate(['/news']);
     }, err => {
 

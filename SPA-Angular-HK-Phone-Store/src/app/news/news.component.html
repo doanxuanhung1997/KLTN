@@ -3,27 +3,27 @@
         <div class="row">
             <div class="card">
                 <div class="card-header card-header-info">
-                    <h4 class="card-title text-center">News Technology</h4>
+                    <h4 class="card-title text-center">Tin tức công nghệ</h4>
                 </div>
                 <div class="d-flex mt-3">
                     <input class="form-control w-25 ml-3" id="myInput" type="text" placeholder="Search..">
                     <a routerLink="/news/create-news" class="ml-auto mr-3"><button type="button"
-                            class="btn btn-info">Add News</button></a>
+                            class="btn btn-info">Tạo bản tin mới</button></a>
                 </div>
                 <div class="card-body table-responsive">
                     <table class="table table-hover">
                         <thead class="text-info">
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Date</th>
-                            <th>Creator</th>
+                            <th>Mã</th>
+                            <th>Tiêu đề</th>
+                            <th>Ngày tạo</th>
+                            <th>Người tạo</th>
                             <th></th>
                             <th></th>
                             <th></th>
                         </thead>
                         <tbody id="myTable">
                             <tr *ngFor="let item of Items | paginate: { itemsPerPage: 5, currentPage: p }">
-                                <td>{{item.id_news}}</td>
+                                <td>#{{item.id_news}}</td>
                                 <td>{{item.title.slice(0, 50)}}...</td>
                                 <td>{{item.date_created}}</td>
                                 <td>{{item.fullname}}</td>

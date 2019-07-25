@@ -3,27 +3,27 @@
         <div class="row">
             <div class="card">
                 <div class="card-header card-header-info">
-                    <h4 class="card-title text-center">List Type Phone</h4>
+                    <h4 class="card-title text-center">Danh sách loại máy</h4>
                 </div>
                 <div class="d-flex mt-3">
                     <input class="form-control w-25 ml-3" id="myInput" type="text" placeholder="Search..">
                     <a routerLink="/type-phone/create-type-phone" class="ml-auto mr-3"><button type="button"
-                            class="btn btn-info">Add Type Phone</button></a>
+                            class="btn btn-info">Tạo máy mới</button></a>
                 </div>
                 <div class="card-body table-responsive">
                     <table class="table table-hover">
                         <thead class="text-info">
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Image</th>
-                            <th>Company</th>
-                            <th>Price</th>
+                            <th>Tên</th>
+                            <th>Hình ảnh</th>
+                            <th>Nhà sản xuất</th>
+                            <th>Giá</th>
                             <th></th>
                             <th></th>
                             <th></th>
                         </thead>
                         <tbody id="myTable">
-                            <tr *ngFor="let item of Items| paginate: { itemsPerPage: 5, currentPage: p }">
+                            <tr *ngFor="let item of Items| paginate: { itemsPerPage: 10, currentPage: p }">
                                 <td>{{item.tp_id}}</td>
                                 <td>{{item.tp_name}}</td>
                                 <td>
@@ -32,7 +32,7 @@
                                 <td>
                                     {{item.pc_name}}
                                 </td>
-                                <td>{{item.tp_price}} vnđ</td>
+                                <td>{{ getFormatNumber(item.tp_price)}} vnđ</td>
                                 <td>
                                     <a [routerLink]="['/type-phone/show-type-phone',item.tp_id]">
                                         <button mat-raised-button type="button" matTooltip="Show" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">

@@ -41,12 +41,16 @@ export class UserProfileComponent implements OnInit {
     this.passConfirm = '';
   }
 
+  getFormatNumber(number) {
+    return (Math.max(0, number).toFixed(0).replace(/(?=(?:\d{3})+$)(?!^)/g, '.'))
+  }
+
   changepass(form: NgForm) {
     if (form.value.passNew.length < 6 || form.value.passNew.length > 32) {
-      return alert('Password lengths range from 6-32 characters !');
+      return alert('Độ dài mật khẩu trong khoảng 6-32 ký tự !');
     } else {
       if (form.value.passNew !== form.value.passConfirm) {
-        return alert('Confirm password is not the same !');
+        return alert('Xác nhận mật khẩu mới không đúng !');
       }
       else {
         this.User.changepass(form.value).subscribe(data => {
