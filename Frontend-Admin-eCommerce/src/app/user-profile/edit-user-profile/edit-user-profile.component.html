@@ -1,0 +1,57 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    <h4 class="card-title text-center">Chỉnh sửa thông tin cá nhân</h4>
+                </div>
+                <div class="card-body table-responsive">
+                    <form #profileForm="ngForm" (submit)="edit_profile(profileForm)">
+                        <div class="d-flex">
+                            <div class="p-2 w-50">
+                                <div class="d-flex">
+                                    <div class="mr-5">
+                                        <label for="usr">Thay đổi ảnh đại diện:</label><br>
+                                        <input type="file" class="rounded bg-info" [(ngModel)]="image" name="image" (change)="handleFileSelectImgAvarta($event)">
+                                    </div>
+                                    <img [src]="imgAvatar" width="33%" height="33%" class="img-responsive mt-2" alt="Image">
+                                </div>
+                                <div class="form-group" style="margin-top: 13px">
+                                    <label for="usr">Email:</label>
+                                    <input type="email" disabled class="form-control" [(ngModel)]="userToken.email" name="email" placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Họ tên:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="userToken.fullname" name="fullname" placeholder="Enter full name">
+                                </div>
+
+                            </div>
+                            <div class="p-2 w-50">
+                                <div class="form-group">
+                                    <label for="usr">Địa chỉ:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="userToken.address" name="address" placeholder="Enter address">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Số điện thoại:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="userToken.phone" name="phone" placeholder="Enter phone number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Ngày sinh:</label>
+                                    <input type="date" class="form-control" [(ngModel)]="userToken.birthday" name="birthday" placeholder="Enter birthday">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Salary:</label>
+                                    <input type="number" class="form-control" [(ngModel)]="userToken.salary" name="salary" placeholder="Enter salary">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-success rounded px-4 mr-2">Lưu</button>
+                            <button type="button" (click)="reset()" class="btn btn-info rounded mr-2">Hủy</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

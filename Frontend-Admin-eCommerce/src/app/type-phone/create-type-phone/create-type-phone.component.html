@@ -1,0 +1,117 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    <h4 class="card-title text-center">Tạo sản phẩm</h4>
+                </div>
+                <div class="card-body table-responsive">
+                    <form #tpForm="ngForm" (submit)="add(tpForm)">
+                        <div class="d-flex">
+                            <div class="p-2 w-50">
+                                <div class="form-group">
+                                    <label for="usr">Tên sản phẩm:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp_name" name="tp_name" placeholder="Nhập tên sản phẩm">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Nhà sản xuất:</label>
+                                    <select class="form-control" [(ngModel)]="selectedValue" name="pc_id">
+                                        <option *ngFor="let item of Items" [value]="item.pc_id">{{item.pc_name}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Mô tả sản phẩm:</label>
+                                    <textarea class="form-control" rows="5" id="tp_describe" placeholder="Nhập mô tả" [(ngModel)]="tp_describe" name="tp_describe"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Giá:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp_price" name="tp_price" placeholder="Nhập giá">
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <div class="mr-5">
+                                        <label for="usr">Ảnh 1:</label><br>
+                                        <input type="file" class="rounded bg-info" [(ngModel)]="tp_img1" name="tp_img1" (change)="handleFileSelectImg1($event)">
+                                    </div>
+                                    <img [src]="img1 || imageDefault" class="img-responsive mt-2" width="10%" height="10%" alt="Image">
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <div class="mr-5">
+                                        <label for="usr">Ảnh 2:</label><br>
+                                        <input type="file" class="rounded bg-info" [(ngModel)]="tp_img2" name="tp_img2" (change)="handleFileSelectImg2($event)">
+                                    </div>
+                                    <img [src]="img2 || imageDefault" class="img-responsive mt-2" width="10%" height="10%" alt="Image">
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <div class="mr-5">
+                                        <label for="usr">Ảnh 3:</label><br>
+                                        <input type="file" class="rounded bg-info" [(ngModel)]="tp_img3" name="tp_img3" (change)="handleFileSelectImg3($event)">
+                                    </div>
+                                    <img [src]="img3 || imageDefault" class="img-responsive  mt-2" width="10%" height="10%" alt="Image">
+
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <div class="mr-5">
+                                        <label for="usr">Ảnh 4:</label><br>
+                                        <input type="file" class="rounded bg-info" [(ngModel)]="tp_img4" name="tp_img4" (change)="handleFileSelectImg4($event)">
+                                    </div>
+                                    <img [src]="img4 || imageDefault" class="img-responsive mt-2" width="10%" height="10%" alt="Image">
+
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <div class="mr-5">
+                                        <label for="usr">Ảnh 5:</label><br>
+                                        <input type="file" class="rounded bg-info" [(ngModel)]="tp_img5" name="tp_img5" (change)="handleFileSelectImg5($event)">
+                                    </div>
+                                    <img [src]="img5 || imageDefault" class="img-responsive mt-2" width="10%" height="10%" alt="Image">
+                                </div>
+                            </div>
+                            <div class="p-2 w-50">
+                                <div class="form-group">
+                                    <label for="usr">Màn hình:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp_screen" name="tp_screen" placeholder="Nhập thông số màn hình">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Hệ điều hành:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp_operating_system" name="tp_operating_system" placeholder="Nhập thông số hệ điều hành">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Camera sau:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp_rear_camera" name="tp_rear_camera" placeholder="Nhập thông số camera sau">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Camera trước:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp_front_camera" name="tp_front_camera" placeholder="Nhập thông số camera trước">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">CPU:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp_CPU" name="tp_CPU" placeholder="Nhập thông số CPU">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">RAM:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp_RAM" name="tp_RAM" placeholder="Nhập thông số RAM">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Bộ nhớ:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp_memory" name="tp_memory" placeholder="Nhập thông số bộ nhớ">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Dung lượng pin:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp_battery" name="tp_battery" placeholder="Nhập thông số dung lượng pin">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Khuyến mãi:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="tp_discount" name="tp_discount" placeholder="Nhập lượng khuyến mãi">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-success rounded mr-2">Tạo</button>
+                            <button type="reset" class="btn btn-info rounded mr-2">Làm mới</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

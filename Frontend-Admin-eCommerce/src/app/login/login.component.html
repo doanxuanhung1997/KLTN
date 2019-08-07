@@ -1,0 +1,21 @@
+<div class="body_login">
+    <hr class="dv">
+    <form class="form_login" #loginForm="ngForm" (submit)="login(loginForm)">
+        <legend class="form_title">Manage Store HK Phone</legend>
+        <div class="alert alert-danger" [hidden]="!error">
+            {{error}}
+        </div>
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" placeholder="Enter Email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" placeholder="Enter Password" required>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox"> Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>

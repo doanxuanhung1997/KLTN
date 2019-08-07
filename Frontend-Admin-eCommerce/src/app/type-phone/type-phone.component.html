@@ -1,0 +1,65 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    <h4 class="card-title text-center">Danh sách loại máy</h4>
+                </div>
+                <div class="d-flex mt-3">
+                    <input class="form-control w-25 ml-3" id="myInput" type="text" placeholder="Search..">
+                    <a routerLink="/type-phone/create-type-phone" class="ml-auto mr-3"><button type="button"
+                            class="btn btn-info">Tạo máy mới</button></a>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-info">
+                            <th>ID</th>
+                            <th>Tên</th>
+                            <th>Hình ảnh</th>
+                            <th>Nhà sản xuất</th>
+                            <th>Giá</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </thead>
+                        <tbody id="myTable">
+                            <tr *ngFor="let item of Items| paginate: { itemsPerPage: 10, currentPage: p }">
+                                <td>{{item.tp_id}}</td>
+                                <td>{{item.tp_name}}</td>
+                                <td>
+                                    <img src="{{item.tp_img1}}" class="img-responsive" width="50px" alt="Image">
+                                </td>
+                                <td>
+                                    {{item.pc_name}}
+                                </td>
+                                <td>{{ getFormatNumber(item.tp_price)}} vnđ</td>
+                                <td>
+                                    <a [routerLink]="['/type-phone/show-type-phone',item.tp_id]">
+                                        <button mat-raised-button type="button" matTooltip="Show" [matTooltipPosition]="'above'" class="btn btn-info btn-link btn-sm btn-just-icon">
+                                            <i class="fas fa-eye mb-3"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a [routerLink]="['/type-phone/edit-type-phone',item.tp_id]">
+                                        <button mat-raised-button type="button" matTooltip="Edit" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <button mat-raised-button (click)="delete(item.tp_id)" type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-center">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    <h4 class="card-title text-center">Chỉnh Sửa</h4>
+                </div>
+                <div class="card-body table-responsive">
+                    <form #newsForm="ngForm" (submit)="editNews(newsForm)">
+                        <div class="form-group">
+                            <label for="usr">Tiêu đề:</label>
+                            <input type="text" class="form-control" id="title" [(ngModel)]="news.title" placeholder="Enter Title News" name="title">
+                        </div>
+                        <div class="d-flex">
+                            <div class="mr-5">
+                                <label for="usr">Hình ảnh:</label><br>
+                                <input type="file" class="rounded bg-info" [(ngModel)]="image" name="image" (change)="handleFileSelectImg1($event)">
+                            </div>
+                            <img src="{{imgAvatar}}" width="50%" class="img-responsive mt-2" alt="">
+                        </div>
+                        <div class="form-group">
+                            <label for="usr">Nội dung:</label>
+                            <textarea class="form-control" rows="15" id="content" [(ngModel)]="news.content" placeholder="Enter Content Technology" name="content"></textarea>
+                        </div>
+                        <div class="d-flex justify-content-center mt-3">
+                            <button type="submit" class="btn btn-success rounded mr-2">Lưu</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
